@@ -39,7 +39,7 @@
                                             <action selector="reset" destination="BYZ-38-t0r" eventType="touchUpInside" id="DfT-Cq-S4p"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWe-r2-zDs">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWe-r2-zDs">
                                         <rect key="frame" x="349" y="0.0" width="25" height="45"/>
                                         <connections>
                                             <segue destination="1VW-qf-jJK" kind="show" id="idB-Pi-tgo"/>
@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="114.94565217391305"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="URN-mE-ZtP">
             <objects>
-                <viewController id="1VW-qf-jJK" sceneMemberID="viewController">
+                <viewController id="1VW-qf-jJK" customClass="InfoViewController" customModule="ColorSlider" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="70g-xw-USj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,6 +201,9 @@
                         <viewLayoutGuide key="safeArea" id="OAh-Yw-ddH"/>
                     </view>
                     <navigationItem key="navigationItem" id="YRP-vs-QdK"/>
+                    <connections>
+                        <outlet property="webView" destination="eOT-WY-3PG" id="PTa-QF-HDD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2f-U5-hkn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

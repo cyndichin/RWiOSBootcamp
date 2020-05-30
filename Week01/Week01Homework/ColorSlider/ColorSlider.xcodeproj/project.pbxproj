@@ -15,6 +15,7 @@
 		D74E68EA2480A380002C00E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74E68E82480A380002C00E1 /* LaunchScreen.storyboard */; };
 		D74E68F22481F067002C00E1 /* ColoredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E68F12481F067002C00E1 /* ColoredLabel.swift */; };
 		D74E68F424821475002C00E1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E68F324821475002C00E1 /* InfoViewController.swift */; };
+		D74E68F724821AF3002C00E1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74E68F624821AF3002C00E1 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D74E68EB2480A380002C00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74E68F12481F067002C00E1 /* ColoredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabel.swift; sourceTree = "<group>"; };
 		D74E68F324821475002C00E1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		D74E68F624821AF3002C00E1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74E68F724821AF3002C00E1 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 			children = (
 				D74E68DC2480A37D002C00E1 /* ColorSlider */,
 				D74E68DB2480A37D002C00E1 /* Products */,
+				D74E68F524821AF2002C00E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +75,14 @@
 				D74E68EB2480A380002C00E1 /* Info.plist */,
 			);
 			path = ColorSlider;
+			sourceTree = "<group>";
+		};
+		D74E68F524821AF2002C00E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D74E68F624821AF3002C00E1 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

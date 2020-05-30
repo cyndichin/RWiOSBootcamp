@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
 class InfoViewController: UIViewController {
+    
+    @IBOutlet weak var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
+        if let url = URL(string: "https://en.wikipedia.org/wiki/RGB_color_model") {
+            webView.load(URLRequest(url: url))
+            webView.allowsBackForwardNavigationGestures = true
+        }
     }
+    
+
 }
