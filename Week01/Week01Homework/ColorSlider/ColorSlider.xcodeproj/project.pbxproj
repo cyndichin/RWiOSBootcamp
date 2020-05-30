@@ -13,6 +13,8 @@
 		D74E68E52480A37D002C00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74E68E32480A37D002C00E1 /* Main.storyboard */; };
 		D74E68E72480A380002C00E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74E68E62480A380002C00E1 /* Assets.xcassets */; };
 		D74E68EA2480A380002C00E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74E68E82480A380002C00E1 /* LaunchScreen.storyboard */; };
+		D74E68F22481F067002C00E1 /* ColoredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E68F12481F067002C00E1 /* ColoredLabel.swift */; };
+		D74E68F424821475002C00E1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E68F324821475002C00E1 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D74E68E62480A380002C00E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74E68E92480A380002C00E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74E68EB2480A380002C00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D74E68F12481F067002C00E1 /* ColoredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabel.swift; sourceTree = "<group>"; };
+		D74E68F324821475002C00E1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 				D74E68DD2480A37D002C00E1 /* AppDelegate.swift */,
 				D74E68DF2480A37D002C00E1 /* SceneDelegate.swift */,
 				D74E68E12480A37D002C00E1 /* ViewController.swift */,
+				D74E68F12481F067002C00E1 /* ColoredLabel.swift */,
 				D74E68E32480A37D002C00E1 /* Main.storyboard */,
+				D74E68F324821475002C00E1 /* InfoViewController.swift */,
 				D74E68E62480A380002C00E1 /* Assets.xcassets */,
 				D74E68E82480A380002C00E1 /* LaunchScreen.storyboard */,
 				D74E68EB2480A380002C00E1 /* Info.plist */,
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74E68E22480A37D002C00E1 /* ViewController.swift in Sources */,
+				D74E68F22481F067002C00E1 /* ColoredLabel.swift in Sources */,
 				D74E68DE2480A37D002C00E1 /* AppDelegate.swift in Sources */,
 				D74E68E02480A37D002C00E1 /* SceneDelegate.swift in Sources */,
+				D74E68F424821475002C00E1 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
