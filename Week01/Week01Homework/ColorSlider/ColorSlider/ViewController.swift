@@ -75,8 +75,8 @@ class ViewController: UIViewController {
         let bgColor: UIColor
         
         if segmentIndex == 0 {
-            nameColor = UIColor(red: CGFloat((255 - valueOne)/255.0), green: CGFloat((255 - valueTwo)/255.0), blue: CGFloat((255 - valueThree)/255.0), alpha: 1.0)
             bgColor = UIColor(red: CGFloat(valueOne/255.0), green: CGFloat(valueTwo/255.0), blue: CGFloat(valueThree/255.0), alpha: 1.0)
+            nameColor = UIColor(red: CGFloat((255 - valueOne)/255.0), green: CGFloat((255 - valueTwo)/255.0), blue: CGFloat((255 - valueThree)/255.0), alpha: 1.0)
         } else {
             bgColor = UIColor(hue: CGFloat(valueOne/360), saturation: CGFloat(valueTwo/100), brightness: CGFloat(valueThree/100), alpha: 1.0)
             nameColor = CGFloat((100 - valueThree)/100) > 0.5 ? .white : .black
