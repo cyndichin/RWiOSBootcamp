@@ -78,8 +78,8 @@ class ViewController: UIViewController {
             bgColor = UIColor(red: CGFloat(valueOne/255.0), green: CGFloat(valueTwo/255.0), blue: CGFloat(valueThree/255.0), alpha: 1.0)
             nameColor = UIColor(red: CGFloat((255 - valueOne)/255.0), green: CGFloat((255 - valueTwo)/255.0), blue: CGFloat((255 - valueThree)/255.0), alpha: 1.0)
         } else {
-            bgColor = UIColor(hue: CGFloat(valueOne/360), saturation: CGFloat(valueTwo/100), brightness: CGFloat(valueThree/100), alpha: 1.0)
-            nameColor = CGFloat((100 - valueThree)/100) > 0.5 ? .white : .black
+            bgColor = UIColor(hue: CGFloat(valueOne/360.0), saturation: CGFloat(valueTwo/100.0), brightness: CGFloat(valueThree/100.0), alpha: 1.0)
+            nameColor = CGFloat((100.0 - valueThree)/100.0) > 0.5 ? .white : .black
         }
         
         firstValueLabel.text = String(Int(valueOne))
