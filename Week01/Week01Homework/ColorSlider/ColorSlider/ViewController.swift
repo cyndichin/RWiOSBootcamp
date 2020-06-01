@@ -28,10 +28,13 @@ class ViewController: UIViewController {
         return segmentControl.selectedSegmentIndex
     }
     
+    var sliderValues: (Float, Float, Float) {
+        return (firstSlider.value.rounded(), secondSlider.value.rounded(), thirdSlider.value.rounded())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         previewView.layer.borderWidth = 5.0
-        resetSliders()
         reset()
     }
     
@@ -41,7 +44,7 @@ class ViewController: UIViewController {
         resetSlider(firstSlider, firstValueLabel)
         resetSlider(secondSlider, secondValueLabel)
         resetSlider(thirdSlider, thirdValueLabel)
-        resetSliders()
+        setAllSlidersColor()
         previewView.layer.borderColor = UIColor.black.cgColor
         backgroundView.backgroundColor = .black
     }
@@ -52,8 +55,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderMoved(_ sender: AnyObject) {
-        setSlider(slider: sender as! UISlider)
-        resetSliders()
+        setAllSlidersColor()
         updateColor(previewView)
     }
     
@@ -72,27 +74,21 @@ class ViewController: UIViewController {
     }
     
     func updateColor(with name: String = "Set Color", _ colorView: UIView) {
-        let valueOne = firstSlider.value.rounded()
-        let valueTwo = secondSlider.value.rounded()
-        let valueThree = thirdSlider.value.rounded()
-        let nameColor: UIColor
         let bgColor: UIColor
         
         if segmentIndex == 0 {
-            bgColor = UIColor(red: CGFloat(valueOne/255.0), green: CGFloat(valueTwo/255.0), blue: CGFloat(valueThree/255.0), alpha: 1.0)
-            nameColor = contrastColor(color: bgColor)
+            bgColor = UIColor(red: CGFloat(sliderValues.0/255.0), green: CGFloat(sliderValues.1/255.0), blue: CGFloat(sliderValues.2/255.0), alpha: 1.0)
         } else {
-            bgColor = UIColor(hue: CGFloat(valueOne/360.0), saturation: CGFloat(valueTwo/100.0), brightness: CGFloat(valueThree/100.0), alpha: 1.0)
-            nameColor = contrastColor(color: bgColor)
+            bgColor = UIColor(hue: CGFloat(sliderValues.0/360.0), saturation: CGFloat(sliderValues.1/100.0), brightness: CGFloat(sliderValues.2/100.0), alpha: 1.0)
         }
-        
-        firstValueLabel.text = String(Int(valueOne))
-        secondValueLabel.text = String(Int(valueTwo))
-        thirdValueLabel.text = String(Int(valueThree))
+
+        firstValueLabel.text = String(Int(sliderValues.0))
+        secondValueLabel.text = String(Int(sliderValues.1))
+        thirdValueLabel.text = String(Int(sliderValues.2))
         
         if colorView == backgroundView {
             colorNameLabel.text = name
-            colorNameLabel.textColor = nameColor
+            colorNameLabel.textColor = contrastColor(color: bgColor)
             colorView.backgroundColor = bgColor
         } else {
             colorView.layer.borderColor = bgColor.cgColor
@@ -107,7 +103,6 @@ class ViewController: UIViewController {
             setTitleLabels("Hue", "Saturation", "Brightness")
             setSliderMaximum(360.0, 100.0, 100.0)
         }
-        resetSliders()
         reset()
     }
     
@@ -123,15 +118,14 @@ class ViewController: UIViewController {
         thirdTitleLabel.text = thirdLabel
     }
     
-    func resetSliders() {
-        setSlider(slider: firstSlider)
-        setSlider(slider: secondSlider)
-        setSlider(slider: thirdSlider)
+    func setAllSlidersColor() {
+        setSliderColor(slider: firstSlider)
+        setSliderColor(slider: secondSlider)
+        setSliderColor(slider: thirdSlider)
     }
     
     func contrastColor(color: UIColor) -> UIColor {
         var d = CGFloat(0)
-
         var r = CGFloat(0)
         var g = CGFloat(0)
         var b = CGFloat(0)
@@ -141,24 +135,18 @@ class ViewController: UIViewController {
 
         // Counting the perceptive luminance - human eye favors green color...
         let luminance = 1 - ((0.299 * r) + (0.587 * g) + (0.114 * b))
-
-        if luminance < 0.5 {
-            d = CGFloat(0) // bright colors - black font
-        } else {
-            d = CGFloat(1) // dark colors - white font
-        }
-
-        return UIColor( red: d, green: d, blue: d, alpha: a)
-    }
+        d = luminance < 0.5 ? CGFloat(0) : CGFloat(1)
+        return UIColor(red: d, green: d, blue: d, alpha: a)
+     }
     
-    func setSlider(slider: UISlider) {
+    func setSliderColor(slider: UISlider) {
         let tgl = CAGradientLayer()
         let frame = CGRect.init(x:0, y:0, width:slider.frame.size.width, height:5)
         tgl.frame = frame
         
-        let rgb = (CGFloat(firstSlider.value/255.0), CGFloat(secondSlider.value/255.0), CGFloat(thirdSlider.value/255.0))
+        let rgb = (CGFloat(sliderValues.0/255.0), CGFloat(sliderValues.1/255.0), CGFloat(sliderValues.2/255.0))
         
-        let hsb = (CGFloat(firstSlider.value/360.0), CGFloat(secondSlider.value/100.0), CGFloat(thirdSlider.value/100.0))
+        let hsb = (CGFloat(sliderValues.0/360.0), CGFloat(sliderValues.1/100.0), CGFloat(sliderValues.2/100.0))
         
         let buttonColor = UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
         let otherbuttonColor = UIColor(hue: hsb.0, saturation: hsb.1, brightness: hsb.2, alpha: 1.0)
@@ -175,6 +163,7 @@ class ViewController: UIViewController {
             let hueColor4 = updateHSB(240/360.0, hsb.1, hsb.2)
             let hueColor5 = updateHSB(300/360.0, hsb.1, hsb.2)
             let hueColor6 = updateHSB(1, hsb.1, hsb.2)
+            
             tgl.colors = segmentIndex == 0 ? [updateRGB(0, rgb.1, rgb.2), updateRGB(1, rgb.1, rgb.2)] : [hueColor0, hueColor1, hueColor2, hueColor3,hueColor4, hueColor5, hueColor6]
         case secondSlider:
             tgl.colors = segmentIndex == 0 ? [updateRGB(rgb.0, 0, rgb.2), updateRGB(rgb.0, 1, rgb.2)] : [updateHSB(hsb.0, 0, hsb.2), updateHSB(hsb.0, 1, hsb.2)]
