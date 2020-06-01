@@ -11,15 +11,15 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var colorNameLabel: UILabel!
-    @IBOutlet weak var redValueLabel: UILabel!
-    @IBOutlet weak var greenValueLabel: UILabel!
-    @IBOutlet weak var blueValueLabel: UILabel!
+    @IBOutlet weak var firstValueLabel: UILabel!
+    @IBOutlet weak var secondValueLabel: UILabel!
+    @IBOutlet weak var thirdValueLabel: UILabel!
     @IBOutlet weak var firstTitleLabel: UILabel!
     @IBOutlet weak var secondTitleLabel: UILabel!
     @IBOutlet weak var thirdTitleLabel: UILabel!
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var firstSlider: UISlider!
+    @IBOutlet weak var secondSlider: UISlider!
+    @IBOutlet weak var thirdSlider: UISlider!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var previewView: UIView!
@@ -37,9 +37,9 @@ class ViewController: UIViewController {
     @IBAction func reset() {
         colorNameLabel.text = "Color Name"
         colorNameLabel.textColor = .white
-        resetSlider(redSlider, redValueLabel)
-        resetSlider(greenSlider, greenValueLabel)
-        resetSlider(blueSlider, blueValueLabel)
+        resetSlider(firstSlider, firstValueLabel)
+        resetSlider(secondSlider, secondValueLabel)
+        resetSlider(thirdSlider, thirdValueLabel)
         previewView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
         backgroundView.backgroundColor = .black
     }
@@ -52,7 +52,6 @@ class ViewController: UIViewController {
     @IBAction func sliderMoved(_ sender: AnyObject) {
         updateColor(previewView)
     }
-    
     
     @IBAction func setColor() {
         let alertVC = UIAlertController(title: "Set Color", message: "Please Enter a Color Name", preferredStyle: .alert)
@@ -69,22 +68,23 @@ class ViewController: UIViewController {
     }
     
     func updateColor(with name: String = "Set Color", _ colorView: UIView) {
-        let red = redSlider.value.rounded()
-        let green = greenSlider.value.rounded()
-        let blue = blueSlider.value.rounded()
+        let valueOne = firstSlider.value.rounded()
+        let valueTwo = secondSlider.value.rounded()
+        let valueThree = thirdSlider.value.rounded()
         let nameColor: UIColor
         let bgColor: UIColor
+        
         if segmentIndex == 0 {
-            nameColor = UIColor(red: CGFloat((255 - red)/255), green: CGFloat((255 - green)/255), blue: CGFloat((255 - blue)/255), alpha: 1.0)
-            bgColor = UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255.0), blue: CGFloat(blue/255.0), alpha: 1.0)
+            bgColor = UIColor(red: CGFloat((255 - valueOne)/255.0), green: CGFloat((255 - valueTwo)/255.0), blue: CGFloat((255 - valueThree)/255.0), alpha: 1.0)
+            nameColor = UIColor(red: CGFloat(valueOne/255.0), green: CGFloat(valueTwo/255.0), blue: CGFloat(valueThree/255.0), alpha: 1.0)
         } else {
-            nameColor = UIColor(hue: CGFloat((360 - red)/360), saturation: CGFloat((100 - green)/100), brightness: CGFloat((100 - blue)/100), alpha: 1.0)
-            bgColor = UIColor(hue: CGFloat(red/360.0), saturation: CGFloat(green/100.0), brightness: CGFloat(blue/100.0), alpha: 1.0)
+            bgColor = UIColor(hue: CGFloat(valueOne/360), saturation: CGFloat(valueTwo/100), brightness: CGFloat(valueThree/100), alpha: 1.0)
+            nameColor = CGFloat((100 - valueThree)/100) > 0.5 ? .white : .black
         }
         
-        redValueLabel.text = String(Int(red))
-        greenValueLabel.text = String(Int(green))
-        blueValueLabel.text = String(Int(blue))
+        firstValueLabel.text = String(Int(valueOne))
+        secondValueLabel.text = String(Int(valueTwo))
+        thirdValueLabel.text = String(Int(valueThree))
         
         if colorView == backgroundView {
             colorNameLabel.text = name
@@ -107,9 +107,9 @@ class ViewController: UIViewController {
     }
     
     func setSliderMaximum(_ firstMax: Float, _ secondMax: Float, _ thirdMax: Float) {
-        redSlider.maximumValue = firstMax
-        greenSlider.maximumValue = secondMax
-        blueSlider.maximumValue = thirdMax
+        firstSlider.maximumValue = firstMax
+        secondSlider.maximumValue = secondMax
+        thirdSlider.maximumValue = thirdMax
     }
     
     func setTitleLabels(_ firstLabel: String, _ secondLabel: String, _ thirdLabel: String) {
