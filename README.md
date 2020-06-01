@@ -15,4 +15,6 @@
 - Develop mobile applications that enable others to learn how to code
 - Obtain opportunities to teach others how to build apps
 
-**Hobbies / Interests**: Snowboarding, Rockclimbing, Solving Puzzles, Playing Boardgames, Completing 30 Day Challenges, Volunteering
+**Hobbies / Interests**: Snowboarding, Rockclimbing, Solving Puzzles, Playing Board Games, Completing 30 Day Challenges, Volunteering
+
+Let's go Team Kitten!
