@@ -1,4 +1,7 @@
 # Cyndi Chin
+
+<img src="/Assets/profile_pic.jpg"  width="200">
+
 **Discord**: cynx#9996
 
 **Location**: USA, New York, NYC
@@ -11,10 +14,10 @@
 
 **Goals**:
 
-- Get hired as an iOS Developer / Engineer
+- Gain skills to become an iOS Developer / Engineer
 - Develop mobile applications that enable others to learn how to code
 - Obtain opportunities to teach others how to build apps
 
-**Hobbies / Interests**: Snowboarding, Rockclimbing, Solving Puzzles, Playing Board Games, Completing 30 Day Challenges, Volunteering
+**Hobbies / Interests**: Snowboarding, Rock Climbing, Solving Puzzles, Playing Board Games, Completing 30 Day Challenges, Volunteering
 
 Let's go Team Kitten!
