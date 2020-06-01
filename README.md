@@ -20,4 +20,4 @@
 
 **Hobbies / Interests**: Snowboarding, Rock Climbing, Solving Puzzles, Playing Board Games, Completing 30 Day Challenges, Volunteering
 
-Let's go Team Kitten!
+Let's go Team Kittens!
