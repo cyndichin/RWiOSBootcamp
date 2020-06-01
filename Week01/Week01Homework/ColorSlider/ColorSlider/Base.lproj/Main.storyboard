@@ -111,6 +111,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-Hn-7Hu">
                                                 <rect key="frame" x="20" y="78" width="260" height="67.5"/>
@@ -181,6 +182,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" red="0.57975260416666674" green="1" blue="0.60852149327596039" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Sc3-8l-pwI" firstAttribute="leading" secondItem="btr-5O-J5e" secondAttribute="leading" constant="20" id="Kcp-9i-lOs"/>
                                             <constraint firstItem="aRI-Hn-7Hu" firstAttribute="leading" secondItem="btr-5O-J5e" secondAttribute="leading" constant="20" id="Tdu-kk-xur"/>
