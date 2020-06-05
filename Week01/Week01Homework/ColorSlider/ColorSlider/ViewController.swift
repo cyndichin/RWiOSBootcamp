@@ -147,24 +147,30 @@ class ViewController: UIViewController {
         let rgb = (CGFloat(sliderValues.0/255.0), CGFloat(sliderValues.1/255.0), CGFloat(sliderValues.2/255.0))
         
         let hsb = (CGFloat(sliderValues.0/360.0), CGFloat(sliderValues.1/100.0), CGFloat(sliderValues.2/100.0))
-        
-        let buttonColor = UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
-        let otherbuttonColor = UIColor(hue: hsb.0, saturation: hsb.1, brightness: hsb.2, alpha: 1.0)
+        let buttonColor: UIColor
+        if segmentIndex == 0 {
+            buttonColor = UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
+        } else {
+          buttonColor = UIColor(hue: hsb.0, saturation: hsb.1, brightness: hsb.2, alpha: 1.0)
+        }
 
         slider.thumbImage(for: .normal)
-        slider.thumbTintColor = segmentIndex == 0 ? buttonColor : otherbuttonColor
+        slider.thumbTintColor = buttonColor
         
         switch slider {
         case firstSlider:
-            let hueColor0 = updateHSB(0, hsb.1, hsb.2)
-            let hueColor1 = updateHSB(60/360.0, hsb.1, hsb.2)
-            let hueColor2 = updateHSB(120/360.0, hsb.1, hsb.2)
-            let hueColor3 = updateHSB(180/360.0, hsb.1, hsb.2)
-            let hueColor4 = updateHSB(240/360.0, hsb.1, hsb.2)
-            let hueColor5 = updateHSB(300/360.0, hsb.1, hsb.2)
-            let hueColor6 = updateHSB(1, hsb.1, hsb.2)
-            
-            tgl.colors = segmentIndex == 0 ? [updateRGB(0, rgb.1, rgb.2), updateRGB(1, rgb.1, rgb.2)] : [hueColor0, hueColor1, hueColor2, hueColor3,hueColor4, hueColor5, hueColor6]
+            if segmentIndex == 0 {
+              tgl.colors = [updateRGB(0, rgb.1, rgb.2), updateRGB(1, rgb.1, rgb.2)]
+            } else {
+                let hueColor0 = updateHSB(0, hsb.1, hsb.2)
+                let hueColor1 = updateHSB(60/360.0, hsb.1, hsb.2)
+                let hueColor2 = updateHSB(120/360.0, hsb.1, hsb.2)
+                let hueColor3 = updateHSB(180/360.0, hsb.1, hsb.2)
+                let hueColor4 = updateHSB(240/360.0, hsb.1, hsb.2)
+                let hueColor5 = updateHSB(300/360.0, hsb.1, hsb.2)
+                let hueColor6 = updateHSB(1, hsb.1, hsb.2)
+                tgl.colors = [hueColor0, hueColor1, hueColor2, hueColor3,hueColor4, hueColor5, hueColor6]
+            }
         case secondSlider:
             tgl.colors = segmentIndex == 0 ? [updateRGB(rgb.0, 0, rgb.2), updateRGB(rgb.0, 1, rgb.2)] : [updateHSB(hsb.0, 0, hsb.2), updateHSB(hsb.0, 1, hsb.2)]
         case thirdSlider:
