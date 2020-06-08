@@ -42,23 +42,59 @@ class ViewController: UIViewController {
   var rgb = RGB()
   
   @IBAction func aSliderMoved(sender: UISlider) {
-
-  }
+    let redValue = Int(redSlider.value.rounded())
+    let greenValue = Int(greenSlider.value.rounded())
+    let blueValue = Int(blueSlider.value.rounded())
+        
+    redLabel.text = "R: \(redValue)"
+    greenLabel.text = "G: \(greenValue)"
+    blueLabel.text = "B: \(blueValue)"
+    game.setCurrentValue(with: RGB(r: redValue, g: greenValue, b: blueValue))
+    guessLabel.backgroundColor = UIColor(rgbStruct: game.currentValue)
+ }
   
   @IBAction func showAlert(sender: AnyObject) {
+    let (title, message) = game.updateScore()
 
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+    let action = UIAlertAction(title: "OK", style: .default, handler: {
+    action in
+      self.game.startNewRound()
+      self.targetTextLabel.text = "Match another color!"
+      self.updateView()
+    })
+
+    alert.addAction(action)
+
+    present(alert, animated: true, completion: nil)
   }
   
   @IBAction func startOver(sender: AnyObject) {
-
+    game.startNewGame()
+    updateView()
   }
   
   func updateView() {
-
+    redSlider.value = Float(game.currentValue.r)
+    greenSlider.value = Float(game.currentValue.g)
+    blueSlider.value = Float(game.currentValue.b)
+    
+    redLabel.text = String(Int(redSlider.value))
+    blueLabel.text = String(Int(blueSlider.value))
+    greenLabel.text = String(Int(greenSlider.value))
+    
+    guessLabel.backgroundColor = UIColor(rgbStruct: game.currentValue)
+    targetLabel.backgroundColor = UIColor(rgbStruct: game.targetValue)
+    
+    roundLabel.text = String(game.round)
+    scoreLabel.text = String(game.score)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    game.startNewGame()
+    updateView()
   }
 }
 

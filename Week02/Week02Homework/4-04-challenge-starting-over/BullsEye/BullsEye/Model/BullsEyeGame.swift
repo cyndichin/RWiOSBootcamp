@@ -42,7 +42,6 @@ class BullsEyeGame {
          title = "Not even close..."
        }
         score += points
-        print(points, score, difference)
         let message = "You scored \(points) points"
         
         return (title, message)

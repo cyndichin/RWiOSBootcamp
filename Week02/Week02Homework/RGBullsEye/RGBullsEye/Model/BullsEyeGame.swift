@@ -25,11 +25,11 @@ import Foundation
 class BullsEyeGame {  // might be class?
     var currentValue: RGB
     var targetValue: RGB
-    var score: Double
+    var score: Int
     var round: Int
     
     var difference: Double {
-        return currentValue.difference(target: targetValue)
+        return 100 * currentValue.difference(target: targetValue)
     }
     
     init () {
@@ -39,10 +39,10 @@ class BullsEyeGame {  // might be class?
         self.round = 0
     }
     
-    func updateScore() -> (title: String, points: Double) {
+    func updateScore() -> (title: String, message: String) {
         print("Difference \(difference)")
         let title: String
-        var points = 100 - difference
+        var points = 100 - Int(difference)
         if difference == 0 {
          title = "Perfect!"
          points += 100
@@ -57,10 +57,11 @@ class BullsEyeGame {  // might be class?
          title = "Not even close..."
        }
         score += points
-        return (title, points)
+        let message = "You scored \(points) points"
+        return (title, message)
     }
     
-    func updateCurrentValue(with value: RGB) {
+    func setCurrentValue(with value: RGB) {
         currentValue = value
     }
     
@@ -72,8 +73,7 @@ class BullsEyeGame {  // might be class?
     
     func startNewRound() {
       round += 1
-      targetValue = RGB(r: Int.random(in: 0...225), g: Int.random(in: 0...225), b: Int.random(in: 0...225))
-      currentValue = RGB(r: 0, g: 0, b: 0)
+      targetValue = RGB(r: Int.random(in: 0...255), g: Int.random(in: 0...255), b: Int.random(in: 0...255))
+      currentValue = RGB(r: 128, g: 128, b: 128)
     }
 }
-

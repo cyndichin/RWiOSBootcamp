@@ -49,7 +49,6 @@ class ViewController: UIViewController {
   func updateViews() {
     slider.value = Float(game.currentValue)
     targetLabel.text = String(game.targetValue)
-    print(game.score)
     scoreLabel.text = String(game.score)
     roundLabel.text = String(game.round)
   }
