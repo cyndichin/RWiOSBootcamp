@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
-    
+
   let game = BullsEyeGame()
     
   override func viewDidLoad() {
@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     let roundedValue = slider.value.rounded()
     game.setCurrentValue(with: Int(roundedValue))
     game.startNewGame()
+    slider.minimumTrackTintColor =
+        UIColor.blue.withAlphaComponent(CGFloat(game.difference)/100.0)
     updateViews()
   }
 
@@ -44,10 +46,15 @@ class ViewController: UIViewController {
   @IBAction func sliderMoved(_ slider: UISlider) {
     let roundedValue = slider.value.rounded()
     game.setCurrentValue(with: Int(roundedValue))
+    slider.minimumTrackTintColor =
+    UIColor.blue.withAlphaComponent(CGFloat(game.difference)/100.0)
   }
 
   func updateViews() {
     slider.value = Float(game.currentValue)
+    slider.minimumTrackTintColor =
+    UIColor.blue.withAlphaComponent(CGFloat(game.difference)/100.0)
+    
     targetLabel.text = String(game.targetValue)
     scoreLabel.text = String(game.score)
     roundLabel.text = String(game.round)
