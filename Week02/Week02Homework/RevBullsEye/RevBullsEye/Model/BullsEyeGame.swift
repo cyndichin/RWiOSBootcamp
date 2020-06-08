@@ -13,8 +13,6 @@ class BullsEyeGame {
     var targetValue: Int
     var score: Int
     var round: Int
-    var title: String
-    var points: Int
     
     var difference: Int {
         return abs(targetValue - currentValue)
@@ -25,12 +23,11 @@ class BullsEyeGame {
         self.targetValue = 0
         self.score = 0
         self.round = 0
-        self.title = ""
-        self.points = 0
     }
     
-    func updateScore() {
-        points = 100 - difference
+    func updateScore() -> (title: String, message: String) {
+        let title: String
+        var points = 100 - difference
         if difference == 0 {
          title = "Perfect!"
          points += 100
@@ -45,9 +42,12 @@ class BullsEyeGame {
          title = "Not even close..."
        }
         score += points
+        let message = "You scored \(points) points"
+        
+        return (title, message)
     }
     
-    func updateCurrentValue(with value: Int) {
+    func setCurrentValue(with value: Int) {
         currentValue = value
     }
     
@@ -60,6 +60,5 @@ class BullsEyeGame {
     func startNewRound() {
       round += 1
       targetValue = Int.random(in: 1...100)
-      currentValue = 50
     }
 }

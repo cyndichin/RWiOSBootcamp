@@ -24,24 +24,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         game.startNewGame()
         slider.isUserInteractionEnabled = false
         hitMeButton.isUserInteractionEnabled = false
+        
+        hitMeButton.layer.cornerRadius = 5.0
+
         guessTextField.delegate = self
         guessTextField.addTarget(self, action: #selector(self.textFieldFilter), for: .editingChanged)
+        
         updateView()
     }
     
     @IBAction func showAlert() {
-        game.updateScore()
-        let title = game.title
-        let guess = guessTextField.text ?? ""
-    
-        let message = """
-        Guess: \(guess)
-        Slider Value: \(slider.value)
-        You scored \(game.points) points
-        """
+        let (title, message) = game.updateScore()
+
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: { action in
+        let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             self.game.startNewRound()
+            self.hitMeButton.isUserInteractionEnabled = false
             self.updateView()
         })
         
@@ -69,20 +67,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
       if let text = guessTextField.text, let intText = Int(text) {
         textField.text = "\(intText)"
         hitMeButton.isUserInteractionEnabled = true
+        game.setCurrentValue(with: intText)
       } else {
+        hitMeButton.isUserInteractionEnabled = false
         textField.text = ""
       }
+        hitMeButton.backgroundColor = hitMeButton.isUserInteractionEnabled ? #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1) : UIColor.systemGray5
     }
     
     func updateView() {
+        hitMeButton.backgroundColor = hitMeButton.isUserInteractionEnabled ? #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1) : UIColor.systemGray5
+        guessTextField.text = ""
         scoreLabel.text = game.score.description
         roundLabel.text = game.round.description
         slider.value = Float(game.targetValue)
     }
     
-    
     @IBAction func reset() {
         game.startNewGame()
+        hitMeButton.isUserInteractionEnabled = false
+        updateView()
     }
 }
 
