@@ -73,33 +73,17 @@
 		CDCB57E31BED8F4800003224 /* RGBullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				D71BC99B248DCD0500A00726 /* ViewController */,
-				D71BC99A248DCCF800A00726 /* Model */,
 				CDCB57E41BED8F4800003224 /* AppDelegate.swift */,
+				CDCB57E61BED8F4800003224 /* ViewController.swift */,
+				CDCB57F61BED941D00003224 /* BullsEyeGame.swift */,
+				CDCB57F71BED941D00003224 /* RGB.swift */,
+				CDCB57FA1BED986300003224 /* AboutViewController.swift */,
 				CDCB57E81BED8F4800003224 /* Main.storyboard */,
 				181A114E22AD925B003EA9CF /* LaunchScreen.storyboard */,
 				CDCB57EB1BED8F4800003224 /* Assets.xcassets */,
 				CDCB57F01BED8F4800003224 /* Info.plist */,
 			);
 			path = RGBullsEye;
-			sourceTree = "<group>";
-		};
-		D71BC99A248DCCF800A00726 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CDCB57F71BED941D00003224 /* RGB.swift */,
-				CDCB57F61BED941D00003224 /* BullsEyeGame.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D71BC99B248DCD0500A00726 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CDCB57E61BED8F4800003224 /* ViewController.swift */,
-				CDCB57FA1BED986300003224 /* AboutViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

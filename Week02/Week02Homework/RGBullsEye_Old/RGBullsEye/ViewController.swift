@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         blueLabel.text = "B: \(blueValue)"
         game.updateCurrentValue(with: RGB(r: redValue, g: greenValue, b: blueValue))
         guessLabel.backgroundColor = UIColor(rgbStruct: game.currentValue)
-        sender.minimumTrackTintColor =  UIColor.blue.withAlphaComponent(CGFloat(quickDiff.r)/100.0)
+        redSlider.minimumTrackTintColor =  UIColor.blue.withAlphaComponent(CGFloat(quickDiff.r)/100.0)
         greenSlider.minimumTrackTintColor =  UIColor.blue.withAlphaComponent(CGFloat(quickDiff.g)/100.0)
         blueSlider.minimumTrackTintColor =  UIColor.blue.withAlphaComponent(CGFloat(quickDiff.b)/100.0)
     }

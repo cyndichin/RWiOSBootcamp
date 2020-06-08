@@ -9,28 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-  let game = BullsEyeGame()
     
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
     
+  let game = BullsEyeGame()
     
   override func viewDidLoad() {
     super.viewDidLoad()
     let roundedValue = slider.value.rounded()
-    game.updateCurrentValue(with: Int(roundedValue))
+    game.setCurrentValue(with: Int(roundedValue))
     game.startNewGame()
     updateViews()
   }
 
   @IBAction func showAlert() {
-    game.updateScore()
-    
-    let title = game.title
-    
-    let message = "You scored \(game.points) points"
+    let (title, message) = game.updateScore()
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     
@@ -43,17 +39,17 @@ class ViewController: UIViewController {
     alert.addAction(action)
     
     present(alert, animated: true, completion: nil)
-    
   }
   
   @IBAction func sliderMoved(_ slider: UISlider) {
     let roundedValue = slider.value.rounded()
-    game.updateCurrentValue(with: Int(roundedValue))
+    game.setCurrentValue(with: Int(roundedValue))
   }
 
   func updateViews() {
     slider.value = Float(game.currentValue)
     targetLabel.text = String(game.targetValue)
+    print(game.score)
     scoreLabel.text = String(game.score)
     roundLabel.text = String(game.round)
   }
