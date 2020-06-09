@@ -45,6 +45,8 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="vSK-fT-Ogo">
                                         <rect key="frame" x="17.5" y="0.0" width="714" height="31"/>
+                                        <color key="tintColor" red="0.57975260419999997" green="1" blue="0.60852149330000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.57975260419999997" green="1" blue="0.60852149330000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERx-MI-ZtC">
                                         <rect key="frame" x="739.5" y="0.0" width="28.5" height="30"/>
@@ -131,6 +133,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Dm4-7j-aof" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="9k0-yW-YmI"/>
                             <constraint firstItem="XLh-J3-kQO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IzM-x0-flY"/>
@@ -143,6 +146,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XLh-J3-kQO" secondAttribute="trailing" constant="20" id="zJA-eN-wEI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4jR-uz-Mpw" appends="YES" id="M6D-0x-xbk"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="guessTextField" destination="ESK-gv-Jtx" id="Rm3-RE-6dG"/>
@@ -153,6 +159,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4jR-uz-Mpw">
+                    <connections>
+                        <action selector="tappedWithSender:" destination="BYZ-38-t0r" id="eRt-yr-VCX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.61607142857142" y="137.68115942028987"/>
         </scene>

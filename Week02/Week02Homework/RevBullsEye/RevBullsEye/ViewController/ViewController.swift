@@ -16,6 +16,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     
+    @IBAction func tapped(sender: AnyObject) {
+       view.endEditing(true)
+     }
+    
     let game = BullsEyeGame()
 
     override func viewDidLoad() {
@@ -68,6 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.text = "\(intText)"
         hitMeButton.isUserInteractionEnabled = true
         game.setCurrentValue(with: intText)
+        guessTextField.backgroundColor = game.difference > 20 ? #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1) : #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1).withAlphaComponent(1.0 - CGFloat(20 - game.difference) / 20.0)
       } else {
         hitMeButton.isUserInteractionEnabled = false
         textField.text = ""
@@ -76,6 +81,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateView() {
+        guessTextField.backgroundColor = #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1)
         hitMeButton.backgroundColor = hitMeButton.isUserInteractionEnabled ? #colorLiteral(red: 0.6328688264, green: 0.986089766, blue: 0.6712947488, alpha: 1) : UIColor.systemGray5
         guessTextField.text = ""
         scoreLabel.text = game.score.description
