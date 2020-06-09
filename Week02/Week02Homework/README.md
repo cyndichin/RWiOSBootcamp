@@ -1,4 +1,4 @@
-#Programming in Swift Fundamentals Homework
+# Programming in Swift Fundamentals Homework
 
 ## Part 1: BullsEyeGame
 ### Tasks
