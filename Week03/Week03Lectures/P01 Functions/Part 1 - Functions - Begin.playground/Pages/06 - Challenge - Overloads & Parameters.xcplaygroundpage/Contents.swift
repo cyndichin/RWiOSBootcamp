@@ -1,0 +1,68 @@
+//: [⇐ Previous: 05 - Advanced Parameters](@previous)
+//: ## Episode 06 - Challenge - Overloads & Parameters
+
+/*:
+ ## Challenge 1
+ Write two possible overloads for the function below. You can use...
+ * a different number of parameters
+ * different argument labels
+ * different parameter types
+ * different return types
+*/
+
+func multiply(number: Int, by multiplier: Int) -> Int {
+  return number * multiplier
+}
+
+// TODO: Write solution here
+func multiply(number: String, by multiplier: String) -> String {
+  return number + multiplier
+}
+
+func multiply(number: Int) -> Int {
+  return number
+}
+
+
+/*:
+ ## Challenge 2
+ Eliminate the overloads below by using a default value for a parameter.
+*/
+
+// --------------------------------------
+func printMultipleOf(multiplier: Int, number: Int) {
+  print("\(multiplier) * \(number)  = \(multiplier * number)")
+}
+
+func printMultipleOf(multiplier: Int) {
+  print("\(multiplier) * 1)  = \(multiplier * 1)")
+}
+// --------------------------------------
+
+
+// TODO: Write solution here
+
+
+// --------------------------------------
+printMultipleOf(multiplier: 7)
+printMultipleOf(multiplier: 11, number: 4)
+// --------------------------------------
+
+
+/*:
+ ## Challenge 3
+ 1 - Change the function below so that it can modify the right parameter.
+ 2 - Call the function!
+*/
+
+var score = 50
+
+func update(score: inout Int, withPoints points: Int) {
+  score += points
+}
+
+update(score: &score, withPoints: 4)
+
+
+
+//: [⇒ Next: 07 - Functions as Parameters](@next)
