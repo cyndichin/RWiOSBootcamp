@@ -10,6 +10,23 @@
 
 // TODO: Write solution here
 
+struct Temperature {
+    var degreesF: Double {
+        didSet {
+            if degreesF > 100 {
+                print("It's \(degreesF) degrees Fahrenheit!")
+            }
+        }
+    }
+    var degreesC: Double {
+        get { return (degreesF - 32) / 1.8 }
+        set { degreesF = newValue * 1.8 + 32}
+    }
+}
+
+var temperature = Temperature(degreesF: 32)
+temperature.degreesC = 75
+
 
 
 /*:
@@ -36,7 +53,26 @@ enum Month: Int {
   case january = 1, february, march, april, may, june, july, august, september, october, november, december
   
   // TODO: Write solution here
+    var monthsUntilJingleBells: Int {
+      Month.december.rawValue - rawValue
+    }
+    
+    var season: Season {
+      switch self {
+      case .december, .january, .february:
+        return .winter
+      case .march, .april, .may:
+        return .spring
+      case .june, .july, .august:
+        return .summer
+      case .september, .october, .november:
+        return .autumn
+      }
+    }
 }
+
+Month.august.monthsUntilJingleBells
+Month.august.season
 
 
 // --------------------------------------
