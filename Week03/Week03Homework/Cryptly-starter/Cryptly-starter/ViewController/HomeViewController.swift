@@ -61,7 +61,6 @@ class HomeViewController: UIViewController{
     setView3Data()
     setRisingData()
     setFallingData()
-    ThemeManager.shared.set(theme: LightTheme())
     views = [view1, view2, view3, risingView, fallingView]
     labels = [view1TextLabel, view2TextLabel, view3TextLabel, headingLabel, risingTextLabel, fallingTextLabel, risingHeaderTextLabel, fallingHeaderTextLabel]
   }
@@ -148,5 +147,4 @@ extension HomeViewController: Themeable {
     labels.forEach { $0.textColor = ThemeManager.shared.currentTheme?.textColor }
     view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
   }
-  
 }
