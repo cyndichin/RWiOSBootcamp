@@ -33,7 +33,6 @@
 import UIKit
 
 class WidgetView: UIView {
-  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setupViews()

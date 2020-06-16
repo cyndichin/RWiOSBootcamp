@@ -15,11 +15,10 @@
 		A1F9E04B2492688C00323226 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9E04A2492688C00323226 /* DataGenerator.swift */; };
 		A1F9E04D249268A300323226 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F9E04C249268A300323226 /* Data.json */; };
 		A1F9E0512492690000323226 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9E0502492690000323226 /* ThemeManager.swift */; };
-		D7B8676324983A2F00C8A7AD /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8676224983A2F00C8A7AD /* WidgetView.swift */; };
 		D7B8676524983A5300C8A7AD /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8676424983A5300C8A7AD /* Theme.swift */; };
 		D7B8676724983A6900C8A7AD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8676624983A6900C8A7AD /* Model.swift */; };
 		D7B8676924983A8400C8A7AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8676824983A8400C8A7AD /* HomeViewController.swift */; };
-		D7E83FD1249705E800D4FDD3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E83FD0249705E800D4FDD3 /* WidgetView.swift */; };
+		D7B8676B24984CF300C8A7AD /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8676A24984CF300C8A7AD /* WidgetView.swift */; };
 		D7E83FD524970E2400D4FDD3 /* Roundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E83FD424970E2400D4FDD3 /* Roundable.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,11 +33,10 @@
 		A1F9E04A2492688C00323226 /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
 		A1F9E04C249268A300323226 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 		A1F9E0502492690000323226 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		D7B8676224983A2F00C8A7AD /* WidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		D7B8676424983A5300C8A7AD /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D7B8676624983A6900C8A7AD /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D7B8676824983A8400C8A7AD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D7E83FD0249705E800D4FDD3 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WidgetView.swift; path = "Cryptly-starter/View/WidgetView.swift"; sourceTree = SOURCE_ROOT; };
+		D7B8676A24984CF300C8A7AD /* WidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		D7E83FD424970E2400D4FDD3 /* Roundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roundable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +108,7 @@
 		D7B8676124983A2F00C8A7AD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D7B8676224983A2F00C8A7AD /* WidgetView.swift */,
+				D7B8676A24984CF300C8A7AD /* WidgetView.swift */,
 				D7E83FD424970E2400D4FDD3 /* Roundable.swift */,
 			);
 			path = View;
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				D7B8676624983A6900C8A7AD /* Model.swift */,
-				D7E83FD0249705E800D4FDD3 /* WidgetView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,12 +227,11 @@
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
 				D7E83FD524970E2400D4FDD3 /* Roundable.swift in Sources */,
 				D7B8676524983A5300C8A7AD /* Theme.swift in Sources */,
-				D7B8676324983A2F00C8A7AD /* WidgetView.swift in Sources */,
+				D7B8676B24984CF300C8A7AD /* WidgetView.swift in Sources */,
 				A1F9E04B2492688C00323226 /* DataGenerator.swift in Sources */,
 				D7B8676924983A8400C8A7AD /* HomeViewController.swift in Sources */,
 				D7B8676724983A6900C8A7AD /* Model.swift in Sources */,
 				A1F9E0512492690000323226 /* ThemeManager.swift in Sources */,
-				D7E83FD1249705E800D4FDD3 /* WidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
