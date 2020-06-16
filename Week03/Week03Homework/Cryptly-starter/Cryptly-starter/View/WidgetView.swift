@@ -34,7 +34,6 @@ import UIKit
 
 class WidgetView: UIView {
   
-  // not sure what this is, but i get an error
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setupViews()
