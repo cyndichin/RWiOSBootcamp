@@ -27,27 +27,55 @@
 /// THE SOFTWARE.
 
 import XCTest
+@testable import BullsEye
+
+class MockUserDefaults: UserDefaults {
+  var gameStyleChanged = 0
+  override func set(_ value: Int, forKey defaultName: String) {
+    if defaultName == "gameStyle" {
+      gameStyleChanged += 1
+    }
+  }
+}
 
 class BullsEyeMockTests: XCTestCase {
+  
+  var sut: ViewController!
+  var mockUserDefaults: MockUserDefaults!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+      sut = UIStoryboard(name: "Main", bundle: nil)
+         .instantiateInitialViewController() as? ViewController
+       mockUserDefaults = MockUserDefaults(suiteName: "testing")
+       sut.defaults = mockUserDefaults
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+      sut = nil
+       mockUserDefaults = nil
+       super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+   func testGameStyleCanBeChanged() {
+      // given
+      let segmentedControl = UISegmentedControl()
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+      // when
+      XCTAssertEqual(
+        mockUserDefaults.gameStyleChanged,
+        0,
+        "gameStyleChanged should be 0 before sendActions")
+      segmentedControl.addTarget(sut,
+        action: #selector(ViewController.chooseGameStyle(_:)), for: .valueChanged)
+      segmentedControl.sendActions(for: .valueChanged)
+
+      // then
+      XCTAssertEqual(
+        mockUserDefaults.gameStyleChanged,
+        1,
+        "gameStyle user default wasn't changed")
     }
 
 }

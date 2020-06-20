@@ -27,27 +27,44 @@
 /// THE SOFTWARE.
 
 import XCTest
+@testable import BullsEye
+
+var sut: BullsEyeGame!
 
 class BullsEyeTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = BullsEyeGame()
+        sut.startNewGame()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+      sut = nil
+      super.tearDown()
     }
+  
+    func testScoreIsComputed() {
+      // 1. given
+      let guess = sut.targetValue + 5
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      // 2. when
+      sut.check(guess: guess)
+
+      // 3. then
+      XCTAssertEqual(sut.scoreRound, 95, "Score computed from guess is wrong")
     }
+  
+  func testScoreIsComputedWhenGuessLTTarget() {
+    // 1. given
+    let guess = sut.targetValue - 5
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    // 2. when
+    sut.check(guess: guess)
 
+    // 3. then
+    XCTAssertEqual(sut.scoreRound, 95, "Score computed from guess is wrong")
+  }
 }

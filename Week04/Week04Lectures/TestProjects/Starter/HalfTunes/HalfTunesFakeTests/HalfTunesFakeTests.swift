@@ -27,27 +27,78 @@
 /// THE SOFTWARE.
 
 import XCTest
+@testable import HalfTunes
 
 class HalfTunesFakeTests: XCTestCase {
 
+    var sut: SearchViewController!
+  
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = UIStoryboard(name: "Main", bundle: nil)
+          .instantiateInitialViewController() as? SearchViewController
+        let testBundle = Bundle(for: type(of: self))
+        let path = testBundle.path(forResource: "abbaData", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)
+
+        let url =
+          URL(string: "https://itunes.apple.com/search?media=music&entity=song&term=abba")
+        let urlResponse = HTTPURLResponse(
+          url: url!,
+          statusCode: 200,
+          httpVersion: nil,
+          headerFields: nil)
+
+        let sessionMock = URLSessionMock(data: data, response: urlResponse, error: nil)
+        sut.defaultSession = sessionMock
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+      sut = nil
+      super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func test_UpdateSearchResults_ParsesData() {
+      // given
+      let promise = expectation(description: "Status code: 200")
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+      // when
+      XCTAssertEqual(
+        sut.searchResults.count,
+        0,
+        "searchResults should be empty before the data task runs")
+      let url =
+        URL(string: "https://itunes.apple.com/search?media=music&entity=song&term=abba")
+      let dataTask = sut.defaultSession.dataTask(with: url!) {
+        data, response, error in
+        // if HTTP request is successful, call updateSearchResults(_:)
+        // which parses the response data into Tracks
+        if let error = error {
+          print(error.localizedDescription)
+        } else if let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 {
+          self.sut.updateSearchResults(data)
         }
+        promise.fulfill()
+      }
+      dataTask.resume()
+      wait(for: [promise], timeout: 5)
+
+      // then
+      XCTAssertEqual(sut.searchResults.count, 3, "Didn't parse 3 items from fake response")
     }
 
+  func test_StartDownload_Performance() {
+    let track = Track(
+      name: "Waterloo",
+      artist: "ABBA",
+      previewUrl:
+        "http://a821.phobos.apple.com/us/r30/Music/d7/ba/ce/mzm.vsyjlsff.aac.p.m4a")
+
+    measure {
+      self.sut.startDownload(track)
+    }
+  }
 }
