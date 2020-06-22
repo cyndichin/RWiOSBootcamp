@@ -32,13 +32,11 @@ class ViewController: UIViewController {
     }
 
     func setUpLeftSideUI() {
-        var house1 = House()
-        house1.address = "111 Adams Street"
-        house1.price = "$12,000"
-        house1.bedrooms = "3 bedrooms"
-        titleLabelLeft.text = house1.address!
-        priceLabelLeft.text = house1.price!
-        roomLabelLeft.text = house1.bedrooms!
+        let house1 = House(address: "111 Adams Street", price: "$12,000", bedrooms: "3 bedrooms")
+        guard let address = house1.address, let price = house1.price, let bedrooms = house1.bedrooms else { return }
+        titleLabelLeft.text = address
+        priceLabelLeft.text = price
+        roomLabelLeft.text = bedrooms
     }
 
     func setUpRightSideUI() {
