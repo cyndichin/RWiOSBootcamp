@@ -80,7 +80,7 @@ class ViewController: UIViewController {
 
         for (key, person1Rating) in person1.items {
             let person2Rating = person2.items[key] ?? 0
-            let difference = abs(person1Rating - person2Rating)/5.0
+            let difference = abs(person1Rating - person2Rating)/4.0
             percentagesForAllItems.append(Double(difference))
         }
 
