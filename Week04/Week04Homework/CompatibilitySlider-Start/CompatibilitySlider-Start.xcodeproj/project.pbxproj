@@ -143,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				C3017C432499C83A00B1E49A /* ViewController.swift */,
-				D7888FCE24A19FD100861101 /* CompatibilityModel.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -151,6 +150,7 @@
 		D73C77C424A19436005853B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7888FCE24A19FD100861101 /* CompatibilityModel.swift */,
 				C3017C722499C91700B1E49A /* Person.swift */,
 			);
 			path = Model;
