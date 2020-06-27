@@ -60,6 +60,7 @@ class ViewController: UIViewController {
             }
             
             MediaPostsHandler.shared.addPost(mediaPost: post)
+            self.postImage = nil
             self.tableview.reloadData()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
