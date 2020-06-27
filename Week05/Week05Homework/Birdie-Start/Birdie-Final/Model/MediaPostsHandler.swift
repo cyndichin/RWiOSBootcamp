@@ -23,15 +23,9 @@ class MediaPostsHandler: NSObject {
         mediaPosts = [imagePost1, imagePost2, textPost1, textPost2]
         mediaPosts = mediaPosts.sorted(by: { $0.timestamp > $1.timestamp })
     }
-
-    func addTextPost(textPost: TextPost) {
-        mediaPosts.append(textPost)
+    
+    func addPost(mediaPost: MediaPost) {
+        mediaPosts.append(mediaPost)
         mediaPosts = mediaPosts.sorted(by: { $0.timestamp > $1.timestamp })
     }
-
-    func addImagePost(imagePost: ImagePost) {
-        mediaPosts.append(imagePost)
-        mediaPosts = mediaPosts.sorted(by: { $0.timestamp > $1.timestamp })
-    }
-
 }
