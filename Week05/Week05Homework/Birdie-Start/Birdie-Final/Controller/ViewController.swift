@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     func setUpTableView() {
         // Set delegates, register custom cells, set up datasource, etc.
         tableview.dataSource = self
-        tableview.delegate = self
         tableview.register(UINib(nibName: "MediaPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MediaPostTableViewCell")
         mediaPostsHandler.getPosts()
     }
@@ -72,10 +71,6 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {
-    
-}
-
 extension ViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mediaPostsHandler.mediaPosts.count
@@ -86,14 +81,12 @@ extension ViewController: UITableViewDataSource {
         guard let mediaCell = cell as? MediaPostTableViewCell else {
             return cell
         }
-        mediaCell.nameLabel.text = mediaPostsHandler.mediaPosts[indexPath.row].userName
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM, HH:mm"
-        let timestamp = mediaPostsHandler.mediaPosts[indexPath.row].timestamp
-        mediaCell.timestampLabel.text = dateFormatter.string(from: timestamp)
-        mediaCell.bodyLabel.text = mediaPostsHandler.mediaPosts[indexPath.row].textBody
-        let imagePost = mediaPostsHandler.mediaPosts[indexPath.row] as? ImagePost
-        mediaCell.bodyImageView?.image = imagePost?.image
+        let post = mediaPostsHandler.mediaPosts[indexPath.row]
+        let viewModel = MediaPostsViewModel(with: post)
+        mediaCell.nameLabel.text = viewModel.name
+        mediaCell.timestampLabel.text = viewModel.timestamp
+        mediaCell.bodyLabel.text = viewModel.text
+        mediaCell.bodyImageView?.image = viewModel.image
         return mediaCell
     }
 }

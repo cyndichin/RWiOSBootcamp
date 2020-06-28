@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
-		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
 		C3C9D365249B324B001F55A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C9D363249B324B001F55A6 /* Main.storyboard */; };
 		C3C9D368249B324B001F55A6 /* Birdie_Final.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D366249B324B001F55A6 /* Birdie_Final.xcdatamodeld */; };
 		C3C9D36A249B324C001F55A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C9D369249B324C001F55A6 /* Assets.xcassets */; };
@@ -22,6 +21,8 @@
 		C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */; };
 		D7230AFC24A7964400383E0A /* MediaPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7230AFA24A7964400383E0A /* MediaPostTableViewCell.swift */; };
 		D7230AFD24A7964400383E0A /* MediaPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7230AFB24A7964400383E0A /* MediaPostTableViewCell.xib */; };
+		D771561824A9009500B78B8C /* MediaPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D771561524A8F97F00B78B8C /* MediaPostsViewModel.swift */; };
+		D771561924A9009700B78B8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsHandler.swift; sourceTree = "<group>"; };
 		D7230AFA24A7964400383E0A /* MediaPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaPostTableViewCell.swift; path = "Birdie-Final/View/MediaPostTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		D7230AFB24A7964400383E0A /* MediaPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaPostTableViewCell.xib; path = "Birdie-Final/View/MediaPostTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D771561524A8F97F00B78B8C /* MediaPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		C3C9D39E249B3C30001F55A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D771561524A8F97F00B78B8C /* MediaPostsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -321,10 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D771561924A9009700B78B8C /* ViewController.swift in Sources */,
 				C3C9D393249B3448001F55A6 /* TextPostModel.swift in Sources */,
+				D771561824A9009500B78B8C /* MediaPostsViewModel.swift in Sources */,
 				C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */,
 				D7230AFC24A7964400383E0A /* MediaPostTableViewCell.swift in Sources */,
-				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie_Final.xcdatamodeld in Sources */,
