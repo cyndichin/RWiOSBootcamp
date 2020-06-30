@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-//let mediaPostsHandler = MediaPostsHandler.shared
-
 class MediaPostsViewModel {
     let post: MediaPost
     
@@ -36,5 +34,13 @@ class MediaPostsViewModel {
         guard let imagePost = post as? ImagePost else { return nil}
         return imagePost.image
     }
-    
+}
+
+extension MediaPostsViewModel {
+  public func configure(_ cell: MediaPostTableViewCell) {
+    cell.nameLabel.text = name
+    cell.timestampLabel.text = timestamp
+    cell.bodyLabel.text = text
+    cell.bodyImageView?.image = image
+  }
 }

@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     func setUpAlertViewController() -> UIAlertController {
-        let textAlertController = UIAlertController(title: "Create Text Post", message: "What is your username?", preferredStyle: .alert)
+        let textAlertController = UIAlertController(title: "Create Post", message: "What's Up? :]", preferredStyle: .alert)
         textAlertController.addTextField { textField in
             textField.text = ""
             textField.placeholder = "Username"
@@ -62,8 +62,8 @@ class ViewController: UIViewController {
             self.postImage = nil
             self.tableview.reloadData()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         textAlertController.addAction(createAction)
         textAlertController.addAction(cancelAction)
         textAlertController.preferredAction = createAction
@@ -78,15 +78,10 @@ extension ViewController: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MediaPostTableViewCell", for: indexPath)
-        guard let mediaCell = cell as? MediaPostTableViewCell else {
-            return cell
-        }
+        guard let mediaCell = cell as? MediaPostTableViewCell else { return cell }
         let post = mediaPostsHandler.mediaPosts[indexPath.row]
         let viewModel = MediaPostsViewModel(with: post)
-        mediaCell.nameLabel.text = viewModel.name
-        mediaCell.timestampLabel.text = viewModel.timestamp
-        mediaCell.bodyLabel.text = viewModel.text
-        mediaCell.bodyImageView?.image = viewModel.image
+        viewModel.configure(mediaCell)
         return mediaCell
     }
 }
