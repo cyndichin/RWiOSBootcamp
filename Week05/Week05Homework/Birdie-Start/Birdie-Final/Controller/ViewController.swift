@@ -77,8 +77,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MediaPostTableViewCell", for: indexPath)
-        guard let mediaCell = cell as? MediaPostTableViewCell else { return cell }
+        guard let mediaCell = tableView.dequeueReusableCell(withIdentifier: "MediaPostTableViewCell", for: indexPath) as? MediaPostTableViewCell else { return UITableViewCell() }
         let post = mediaPostsHandler.mediaPosts[indexPath.row]
         let viewModel = MediaPostsViewModel(with: post)
         viewModel.configure(mediaCell)
