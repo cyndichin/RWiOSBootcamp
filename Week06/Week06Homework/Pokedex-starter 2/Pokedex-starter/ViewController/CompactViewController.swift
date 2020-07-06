@@ -35,7 +35,7 @@ import UIKit
 class CompactViewController: UIViewController {
 
   let numberOfItemsPerRow: CGFloat = 3
-  let interItemSpacing: CGFloat = 5
+  let interItemSpacing: CGFloat = 15
   
   @IBOutlet weak var collectionView: UICollectionView!
   let dataSource = DataSource()
@@ -65,28 +65,14 @@ class CompactViewController: UIViewController {
 }
 
 extension CompactViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-  //1
+  
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
     let maxWidth = UIScreen.main.bounds.width
     let totalSpacing = interItemSpacing * (numberOfItemsPerRow)
     let itemWidth = (maxWidth - totalSpacing)/numberOfItemsPerRow
-    print("size \(itemWidth)")
+    print("size \(maxWidth) \(totalSpacing) \(itemWidth)")
     return CGSize(width: itemWidth, height: itemWidth)
-  }
-  
-
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      insetForSectionAt section: Int) -> UIEdgeInsets {
-    return sectionInsets
-  }
-
-  // 4
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return sectionInsets.left
   }
 }

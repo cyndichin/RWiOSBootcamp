@@ -34,7 +34,15 @@ import UIKit
 
 class PokeLargeCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
+  static let reuseIdentifier = String(describing: PokeLargeCell.self)
+  
+  @IBOutlet weak var pokeImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var baseExpLabel: UILabel!
+  @IBOutlet weak var heightLabel: UILabel!
+  @IBOutlet weak var weightLabel: UILabel!
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

@@ -90,6 +90,13 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="218" height="289"/>
+            <connections>
+                <outlet property="baseExpLabel" destination="x08-35-QT9" id="IuT-ey-dO7"/>
+                <outlet property="heightLabel" destination="30c-XH-LVn" id="yfq-1U-Fgb"/>
+                <outlet property="nameLabel" destination="Lmx-F7-UDZ" id="sAc-s3-oed"/>
+                <outlet property="pokeImageView" destination="Ujf-Y6-zoP" id="HxE-Rn-0qd"/>
+                <outlet property="weightLabel" destination="2V5-io-S8A" id="l1J-Zl-snw"/>
+            </connections>
             <point key="canvasLocation" x="259.4202898550725" y="171.76339285714286"/>
         </collectionViewCell>
     </objects>

@@ -42,8 +42,8 @@ class PokeCell: UICollectionViewCell {
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-      layer.borderWidth = 3
-    layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+//      layer.borderWidth = 3
+//    layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
     layer.cornerRadius = 5
     }
 

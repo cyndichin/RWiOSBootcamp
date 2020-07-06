@@ -33,12 +33,56 @@
 import UIKit
 
 class LargeViewController: UIViewController {
-
-    override func viewDidLoad() {
+  enum Section {
+     case main
+   }
+  
+  @IBOutlet weak var largeCollectionView: UICollectionView!
+  var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
+  
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    largeCollectionView.register(UINib(nibName: "PokeLargeCell", bundle: nil), forCellWithReuseIdentifier: "PokeLargeCell")
+    
+      largeCollectionView.collectionViewLayout = configureLayout()
+    configureDataSource()
     }
+  
+  func configureLayout() -> UICollectionViewCompositionalLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalHeight(1.0))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1.0))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    
+    let section = NSCollectionLayoutSection(group: group)
+    
+    return UICollectionViewCompositionalLayout(section: section)
+  }
+  
+  func configureDataSource() {
+    let pokemons = PokemonGenerator.shared.generatePokemons()
+    dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: largeCollectionView) { (collectionView, indexPath, number) -> UICollectionViewCell? in
+      
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeLargeCell.reuseIdentifier, for: indexPath) as? PokeLargeCell else {
+        fatalError("Cannot create new cell")
+      }
+      
+      cell.nameLabel.text = pokemons[indexPath.item].pokemonName
+      
+      return cell
+    }
+    
+    var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+    initialSnapshot.appendSections([.main])
+    initialSnapshot.appendItems(Array(1...100))
+    
+    dataSource.apply(initialSnapshot, animatingDifferences: false)
+  }
     
 
     /*
