@@ -34,34 +34,43 @@ import UIKit
 
 class CompactViewController: UIViewController {
 
+  let pokemons = PokemonGenerator.shared.generatePokemons()
   let numberOfItemsPerRow: CGFloat = 3
   let interItemSpacing: CGFloat = 15
   
   @IBOutlet weak var collectionView: UICollectionView!
-  let dataSource = DataSource()
-  private let sectionInsets = UIEdgeInsets(top: 50.0, left: 5.0, bottom: 50.0, right: 5.0)
   
   override func viewDidLoad() {
         super.viewDidLoad()
       collectionView.register(UINib(nibName: "PokeCell", bundle: nil), forCellWithReuseIdentifier: "PokeCell")
     
-      collectionView.dataSource = dataSource
+      collectionView.dataSource = self
       collectionView.delegate = self
 
         // Do any additional setup after loading the view.
     }
+}
+
+extension CompactViewController: UICollectionViewDataSource {
   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+     guard let pokeCell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeCell.reuseIdentifier, for: indexPath) as? PokeCell else {
+         fatalError("Cell cannot be created")
+       }
+       
+      let poke = pokemons[indexPath.item]
+       
+      pokeCell.nameLabel.text = poke.pokemonName
+    pokeCell.pokemonImageView.image = UIImage(named: String(indexPath.item + 1))
+       
+       return pokeCell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return pokemons.count
+  }
+  
 }
 
 extension CompactViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

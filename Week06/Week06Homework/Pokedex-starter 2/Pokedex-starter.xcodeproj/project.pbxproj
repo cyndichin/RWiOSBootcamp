@@ -25,7 +25,6 @@
 		D7FA30C424B29FA60008A0C3 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA30C224B29FA60008A0C3 /* PokeCell.swift */; };
 		D7FA30C524B29FA60008A0C3 /* PokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FA30C324B29FA60008A0C3 /* PokeCell.xib */; };
 		D7FA30C724B2B1310008A0C3 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA30C624B2B1310008A0C3 /* CompactViewController.swift */; };
-		D7FA30C924B2B7590008A0C3 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA30C824B2B7590008A0C3 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 		D7FA30C224B29FA60008A0C3 /* PokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PokeCell.swift; path = PokemonCollectionViewCell/PokeCell.swift; sourceTree = "<group>"; };
 		D7FA30C324B29FA60008A0C3 /* PokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PokeCell.xib; path = PokemonCollectionViewCell/PokeCell.xib; sourceTree = "<group>"; };
 		D7FA30C624B2B1310008A0C3 /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompactViewController.swift; path = ViewController/CompactViewController.swift; sourceTree = "<group>"; };
-		D7FA30C824B2B7590008A0C3 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,6 @@
 				D75AB05924B2D47D00264FE6 /* LargeViewController.swift */,
 				D75AB05624B2C85700264FE6 /* PokeLargeCell.xib */,
 				D75AB05324B2BF8A00264FE6 /* PokeCellViewModel.swift */,
-				D7FA30C824B2B7590008A0C3 /* DataSource.swift */,
 				185CB20423C78CE8009F7571 /* Assets.xcassets */,
 				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
 				185CB20923C78CE8009F7571 /* Info.plist */,
@@ -221,7 +218,6 @@
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
 				D7FA30C424B29FA60008A0C3 /* PokeCell.swift in Sources */,
-				D7FA30C924B2B7590008A0C3 /* DataSource.swift in Sources */,
 				D75AB05724B2C85700264FE6 /* PokeLargeCell.swift in Sources */,
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
 			);
