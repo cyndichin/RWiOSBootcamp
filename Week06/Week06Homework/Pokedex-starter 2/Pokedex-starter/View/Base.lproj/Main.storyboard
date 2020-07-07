@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vWT-cT-ivp">
-                                <rect key="frame" x="15" y="86" width="345" height="502"/>
+                                <rect key="frame" x="15" y="96" width="345" height="482"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GST-Cl-tP6">
                                     <size key="itemSize" width="128" height="502"/>
@@ -52,7 +52,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeLargeCell" id="r3j-ZT-aCM">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="502"/>
+                                        <rect key="frame" x="0.0" y="-10" width="128" height="502"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h6k-kr-Ttj">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="502"/>
@@ -66,15 +66,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="R2U-eA-Prs" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="0Vs-VC-Kmr"/>
-                            <constraint firstItem="vWT-cT-ivp" firstAttribute="centerY" secondItem="R2U-eA-Prs" secondAttribute="centerY" id="2p3-56-s9S"/>
-                            <constraint firstItem="vWT-cT-ivp" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" constant="30" id="31r-hl-j64"/>
                             <constraint firstItem="xmN-FV-oZb" firstAttribute="bottom" secondItem="R2U-eA-Prs" secondAttribute="bottom" id="3Fb-Qh-ZSo"/>
                             <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="xmN-FV-oZb" secondAttribute="trailing" id="4wY-1N-h20"/>
-                            <constraint firstItem="vWT-cT-ivp" firstAttribute="leading" secondItem="R2U-eA-Prs" secondAttribute="leading" constant="15" id="EN4-4m-mA3"/>
+                            <constraint firstItem="xmN-FV-oZb" firstAttribute="bottom" secondItem="vWT-cT-ivp" secondAttribute="bottom" constant="40" id="Arb-oY-7GF"/>
                             <constraint firstItem="R2U-eA-Prs" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" id="IEk-Kd-OuJ"/>
-                            <constraint firstItem="vWT-cT-ivp" firstAttribute="centerX" secondItem="R2U-eA-Prs" secondAttribute="centerX" id="UzK-s4-ZBa"/>
+                            <constraint firstItem="vWT-cT-ivp" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" constant="40" id="dmO-xu-bxH"/>
                             <constraint firstItem="nVx-bH-q6Q" firstAttribute="top" secondItem="xmN-FV-oZb" secondAttribute="top" id="eih-Xy-7Oc"/>
+                            <constraint firstItem="xmN-FV-oZb" firstAttribute="trailing" secondItem="vWT-cT-ivp" secondAttribute="trailing" constant="15" id="iKf-DX-iMT"/>
                             <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="j2a-3d-n7W"/>
+                            <constraint firstItem="vWT-cT-ivp" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" constant="15" id="y0L-Ll-zov"/>
                             <constraint firstItem="xmN-FV-oZb" firstAttribute="trailing" secondItem="R2U-eA-Prs" secondAttribute="trailing" id="yHR-8A-92c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmN-FV-oZb"/>
