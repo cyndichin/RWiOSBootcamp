@@ -39,27 +39,29 @@ class LargeViewController: UIViewController {
   
   @IBOutlet weak var largeCollectionView: UICollectionView!
   var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
-  
-  
-  override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+      // Do any additional setup after loading the view.
     largeCollectionView.register(UINib(nibName: "PokeLargeCell", bundle: nil), forCellWithReuseIdentifier: "PokeLargeCell")
-    
-      largeCollectionView.collectionViewLayout = configureLayout()
+
+    largeCollectionView.collectionViewLayout = configureLayout()
     configureDataSource()
-    }
+  }
   
   func configureLayout() -> UICollectionViewCompositionalLayout {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalHeight(1.0))
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
     
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1.0))
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .fractionalWidth(1.5))
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
     
     let section = NSCollectionLayoutSection(group: group)
+    
+    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+//    section.interGroupSpacing = 3
     
     return UICollectionViewCompositionalLayout(section: section)
   }
@@ -69,11 +71,11 @@ class LargeViewController: UIViewController {
     dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: largeCollectionView) { (collectionView, indexPath, number) -> UICollectionViewCell? in
       
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeLargeCell.reuseIdentifier, for: indexPath) as? PokeLargeCell else {
-        fatalError("Cannot create new cell")
+          fatalError("Cannot create new cell")
       }
-      
-      cell.nameLabel.text = pokemons[indexPath.item].pokemonName
-      
+      let poke = pokemons[indexPath.item]
+      let viewModel = PokeLargeCellViewModel(with: poke)
+      viewModel.configure(cell)
       return cell
     }
     
@@ -83,16 +85,4 @@ class LargeViewController: UIViewController {
     
     dataSource.apply(initialSnapshot, animatingDifferences: false)
   }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -43,8 +43,9 @@ class PokeLargeCell: UICollectionViewCell {
   @IBOutlet weak var weightLabel: UILabel!
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+      super.awakeFromNib()
+      // Initialization code
+      layer.cornerRadius = 5
+  }
 
 }

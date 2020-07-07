@@ -31,8 +31,31 @@
 /// THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 class PokeCellViewModel {
+    let pokemon: Pokemon
+      
+    public init(with pokemon: Pokemon) {
+        self.pokemon = pokemon
+    }
   
+    private var id: Int {
+      return pokemon.pokemonID
+    }
+    
+    public var name: String {
+      return pokemon.pokemonName
+    }
   
+    public var pokemonImage: UIImage? {
+      return UIImage(named: "\(pokemon.pokemonID)")
+    }
+}
+
+extension PokeCellViewModel {
+  public func configure(_ cell: PokeCell) {
+    cell.nameLabel.text = name
+    cell.pokemonImageView.image = pokemonImage
+  }
 }

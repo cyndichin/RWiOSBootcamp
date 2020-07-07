@@ -30,50 +30,48 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import Foundation
 import UIKit
 
-class CompactViewController: UIViewController {
-
-  let pokemons = PokemonGenerator.shared.generatePokemons()
-  let numberOfItemsPerRow: CGFloat = 3
-  let interItemSpacing: CGFloat = 15
-  
-  @IBOutlet weak var collectionView: UICollectionView!
-  
-  override func viewDidLoad() {
-        super.viewDidLoad()
-      collectionView.register(UINib(nibName: "PokeCell", bundle: nil), forCellWithReuseIdentifier: "PokeCell")
-      collectionView.dataSource = self
-      collectionView.delegate = self
+class PokeLargeCellViewModel {
+    let pokemon: Pokemon
+      
+    public init(with pokemon: Pokemon) {
+        self.pokemon = pokemon
     }
-}
-
-extension CompactViewController: UICollectionViewDataSource {
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private var id: Int {
+      return pokemon.pokemonID
+    }
     
-    guard let pokeCell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeCell.reuseIdentifier, for: indexPath) as? PokeCell else {
-         fatalError("Cell cannot be created")
+    public var name: String {
+      return pokemon.pokemonName
     }
-    let poke = pokemons[indexPath.item]
-    let viewModel = PokeCellViewModel(with: poke)
-    viewModel.configure(pokeCell)
-    return pokeCell
-  }
   
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return pokemons.count
+    public var baseExp: Int {
+      return pokemon.baseExp
+    }
+  
+    public var height: Int {
+      return pokemon.height
+    }
+
+    public var weight: Int {
+      return pokemon.weight
+    }
+    
+    public var pokemonImage: UIImage? {
+      return UIImage(named: "\(pokemon.pokemonID)")
+    }
+}
+
+extension PokeLargeCellViewModel {
+  public func configure(_ cell: PokeLargeCell) {
+    cell.nameLabel.text = name
+    cell.baseExpLabel.text = String(baseExp)
+    cell.heightLabel.text = String(height)
+    cell.weightLabel.text = String(weight)
+    cell.pokeImageView.image = pokemonImage
   }
 }
 
-extension CompactViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-  
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let maxWidth = UIScreen.main.bounds.width
-    let totalSpacing = interItemSpacing * (numberOfItemsPerRow)
-    let itemWidth = (maxWidth - totalSpacing)/numberOfItemsPerRow
-    return CGSize(width: itemWidth, height: itemWidth)
-  }
-}
