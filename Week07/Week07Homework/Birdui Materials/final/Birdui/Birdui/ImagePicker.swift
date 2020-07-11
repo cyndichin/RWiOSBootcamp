@@ -1,0 +1,47 @@
+//
+//  ImagePicker.swift
+//  Birdui
+//
+//  Created by Audrey Tam on 4/7/20.
+//  Copyright © 2020 Razeware. All rights reserved.
+//
+
+import SwiftUI
+
+// Create struct ImagePicker: UIViewControllerRepresentable { }
+// Hint: hackingwithswift.com
+
+struct ImagePicker: UIViewControllerRepresentable {
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let uiImage = info[UIImagePickerController.InfoKey.originalImage] {
+                parent.image = uiImage as? UIImage
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
+        
+    }
+}
+
