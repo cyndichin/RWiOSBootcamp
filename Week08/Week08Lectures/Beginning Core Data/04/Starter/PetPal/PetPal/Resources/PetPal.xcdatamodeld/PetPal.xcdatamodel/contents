@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Friend" representedClassName=".Friend" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eyeColor" optional="YES" attributeType="Transformable"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="pets" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="owner" inverseEntity="Pet"/>
+    </entity>
+    <entity name="Pet" representedClassName=".Pet" syncable="YES">
+        <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="kind" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="pets" inverseEntity="Friend"/>
+    </entity>
+    <elements>
+        <element name="Friend" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Pet" positionX="-54" positionY="27" width="128" height="118"/>
+    </elements>
+</model>
