@@ -45,17 +45,26 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
   
   func loadSandwiches() {
-    let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none, imageName: "sandwich1"),
-                         SandwichData(name: "Bologna", sauceAmount: .none, imageName: "sandwich2"),
-                         SandwichData(name: "Breakfast Roll", sauceAmount: .none, imageName: "sandwich3"),
-                         SandwichData(name: "Club", sauceAmount: .none, imageName: "sandwich4"),
-                         SandwichData(name: "Sub", sauceAmount: .none, imageName: "sandwich5"),
-                         SandwichData(name: "Steak", sauceAmount: .tooMuch, imageName: "sandwich6"),
-                         SandwichData(name: "Dunno", sauceAmount: .tooMuch, imageName: "sandwich7"),
-                         SandwichData(name: "Torta", sauceAmount: .tooMuch, imageName: "sandwich8"),
-                         SandwichData(name: "Ham", sauceAmount: .tooMuch, imageName: "sandwich9"),
-                         SandwichData(name: "Lettuce", sauceAmount: .tooMuch, imageName: "sandwich10")]
-    sandwiches.append(contentsOf: sandwichArray)
+    guard let fileURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json") else { return }
+    do {
+        let data = try Data(contentsOf: fileURL)
+        let decoder = JSONDecoder()
+        let decodedData = try decoder.decode([SandwichData].self, from: data)
+        sandwiches = decodedData
+    } catch let error {
+        print("Error in parsing \(error.localizedDescription)")
+    }
+//    let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none, imageName: "sandwich1"),
+//                         SandwichData(name: "Bologna", sauceAmount: .none, imageName: "sandwich2"),
+//                         SandwichData(name: "Breakfast Roll", sauceAmount: .none, imageName: "sandwich3"),
+//                         SandwichData(name: "Club", sauceAmount: .none, imageName: "sandwich4"),
+//                         SandwichData(name: "Sub", sauceAmount: .none, imageName: "sandwich5"),
+//                         SandwichData(name: "Steak", sauceAmount: .tooMuch, imageName: "sandwich6"),
+//                         SandwichData(name: "Dunno", sauceAmount: .tooMuch, imageName: "sandwich7"),
+//                         SandwichData(name: "Torta", sauceAmount: .tooMuch, imageName: "sandwich8"),
+//                         SandwichData(name: "Ham", sauceAmount: .tooMuch, imageName: "sandwich9"),
+//                         SandwichData(name: "Lettuce", sauceAmount: .tooMuch, imageName: "sandwich10")]
+//    sandwiches.append(contentsOf: sandwichArray)
   }
 
   func saveSandwich(_ sandwich: SandwichData) {
