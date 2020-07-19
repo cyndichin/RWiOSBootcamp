@@ -61,7 +61,6 @@ class AddSandwichViewController: UIViewController {
                                sauceAmount: sauceAmount,
                                imageName: imageName)
     saveSandwich(sandwich: newSandwich)
-
     dismiss(animated: true, completion: nil)
   }
   
