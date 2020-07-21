@@ -2,7 +2,7 @@
 //  SauceAmountModel+CoreDataProperties.swift
 //  SandwichSaturation
 //
-//  Created by cynber on 7/19/20.
+//  Created by cynber on 7/20/20.
 //  Copyright © 2020 Jeff Rames. All rights reserved.
 //
 //
@@ -18,7 +18,7 @@ extension SauceAmountModel {
     }
 
     @NSManaged public var sauceAmountString: String?
-    @NSManaged public var sandwiches: NSSet
+    @NSManaged public var sandwiches: NSSet?
 
 }
 
@@ -26,10 +26,10 @@ extension SauceAmountModel {
 extension SauceAmountModel {
 
     @objc(addSandwichesObject:)
-    @NSManaged public func addToSandwiches(_ value: Sandwich)
+    @NSManaged public func addToSandwiches(_ value: SandwichModel)
 
     @objc(removeSandwichesObject:)
-    @NSManaged public func removeFromSandwiches(_ value: Sandwich)
+    @NSManaged public func removeFromSandwiches(_ value: SandwichModel)
 
     @objc(addSandwiches:)
     @NSManaged public func addToSandwiches(_ values: NSSet)
