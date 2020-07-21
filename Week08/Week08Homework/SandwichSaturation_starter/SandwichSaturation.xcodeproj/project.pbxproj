@@ -21,8 +21,8 @@
 		D7AA355024C4827200C3AA91 /* SandwichSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7AA354E24C4827200C3AA91 /* SandwichSaturation.xcdatamodeld */; };
 		D7AA356924C487D200C3AA91 /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA356524C487D200C3AA91 /* Sandwich+CoreDataClass.swift */; };
 		D7AA356B24C487D200C3AA91 /* SauceAmountModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA356724C487D200C3AA91 /* SauceAmountModel+CoreDataClass.swift */; };
-		D7AA357724C4B8C700C3AA91 /* SauceAmountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA357524C4B8C700C3AA91 /* SauceAmountModel+CoreDataProperties.swift */; };
-		D7AA357824C4B8C700C3AA91 /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA357624C4B8C700C3AA91 /* Sandwich+CoreDataProperties.swift */; };
+		D7C96F7D24C513F700337FE3 /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C96F7B24C513F700337FE3 /* Sandwich+CoreDataProperties.swift */; };
+		D7C96F7E24C513F700337FE3 /* SauceAmountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C96F7C24C513F700337FE3 /* SauceAmountModel+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,10 @@
 		D7AA354F24C4827200C3AA91 /* SandwichSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwichSaturation.xcdatamodel; sourceTree = "<group>"; };
 		D7AA356524C487D200C3AA91 /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D7AA356724C487D200C3AA91 /* SauceAmountModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D7AA357524C4B8C700C3AA91 /* SauceAmountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D7AA357624C4B8C700C3AA91 /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7C96F7B24C513F700337FE3 /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7C96F7C24C513F700337FE3 /* SauceAmountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7C96F8524C668EB00337FE3 /* SandwichSaturationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichSaturationUITests.swift; sourceTree = "<group>"; };
+		D7C96F8724C668EB00337FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				1255797924AFB8FA004C616F /* SandwichSaturation */,
+				D7C96F8424C668EB00337FE3 /* SandwichSaturationUITests */,
 				1255797824AFB8FA004C616F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,10 +126,19 @@
 			children = (
 				D7AA356524C487D200C3AA91 /* Sandwich+CoreDataClass.swift */,
 				D7AA356724C487D200C3AA91 /* SauceAmountModel+CoreDataClass.swift */,
-				D7AA357524C4B8C700C3AA91 /* SauceAmountModel+CoreDataProperties.swift */,
-				D7AA357624C4B8C700C3AA91 /* Sandwich+CoreDataProperties.swift */,
+				D7C96F7B24C513F700337FE3 /* Sandwich+CoreDataProperties.swift */,
+				D7C96F7C24C513F700337FE3 /* SauceAmountModel+CoreDataProperties.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D7C96F8424C668EB00337FE3 /* SandwichSaturationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7C96F8524C668EB00337FE3 /* SandwichSaturationUITests.swift */,
+				D7C96F8724C668EB00337FE3 /* Info.plist */,
+			);
+			path = SandwichSaturationUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,11 +218,11 @@
 				D7AA356B24C487D200C3AA91 /* SauceAmountModel+CoreDataClass.swift in Sources */,
 				12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */,
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
+				D7C96F7D24C513F700337FE3 /* Sandwich+CoreDataProperties.swift in Sources */,
 				D7AA355024C4827200C3AA91 /* SandwichSaturation.xcdatamodeld in Sources */,
+				D7C96F7E24C513F700337FE3 /* SauceAmountModel+CoreDataProperties.swift in Sources */,
 				D7AA356924C487D200C3AA91 /* Sandwich+CoreDataClass.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
-				D7AA357724C4B8C700C3AA91 /* SauceAmountModel+CoreDataProperties.swift in Sources */,
-				D7AA357824C4B8C700C3AA91 /* Sandwich+CoreDataProperties.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
 			);
@@ -225,7 +237,8 @@
 				1255798324AFB8FA004C616F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
+			path = SandwichSaturation/View;
+			sourceTree = SOURCE_ROOT;
 		};
 		1255798724AFB8FC004C616F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
