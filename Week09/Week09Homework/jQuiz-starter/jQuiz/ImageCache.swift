@@ -9,5 +9,18 @@
 import UIKit
 
 extension UIImageView {
-
+    public static var imageStore: [String: UIImageView] = [:]
+    public class func retrieveImage(_ imageData: Data) ->
+        UIImageView {
+            let key = "\(imageData.description)"
+            print(key)
+            if let imageView = imageStore[key] {
+                return imageView
+            }
+            
+            let image = UIImage(data: imageData)
+            let imageView = UIImageView(image: image)
+            imageStore[key] = imageView
+            return imageView
+    }
 }

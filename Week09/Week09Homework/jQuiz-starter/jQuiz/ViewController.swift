@@ -27,7 +27,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .systemPurple
-        logoImageView.image = UIImage(named: "jeopardy")
+        Networking.sharedInstance.downloadImage(completion: { (data, error) in
+            guard let data = data else {
+                return
+            }
+            self.logoImageView.image = UIImage(data: data)
+        })
         getClue()
         
         self.scoreLabel.text = "\(self.points)"
@@ -114,7 +119,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = clues[indexPath.row].answer
+        cell.backgroundColor = .systemPurple
+        cell.textLabel?.text = clues[indexPath.row].answer.capitalized
+        cell.textLabel?.textAlignment = .center
         if clues[indexPath.row].answer == correctAnswerClue?.answer {
             cell.textLabel?.textColor = .red
         }

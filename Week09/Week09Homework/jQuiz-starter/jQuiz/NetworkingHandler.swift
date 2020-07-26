@@ -16,9 +16,11 @@ class Networking {
     
     enum Endpoints {
         static let base = "http://www.jservice.io/api"
+        static let homeImage = "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg"
+           
         case random
         case cluesCategory(Clue)
-        case search(String) //associated value
+        case image
         
         var stringValue: String {
             switch self {
@@ -26,11 +28,8 @@ class Networking {
                 return Endpoints.base + "/random"
             case .cluesCategory(let clue):
                 return Endpoints.base + "/clues?category=\(clue.categoryId)&offset=\(clue.category.numOfClues - 4)"
-            default:
-                return Endpoints.base
-                break
-                //               case .search(let query): return Endpoints.base + "/search/movie" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-                
+            case .image:
+                return Endpoints.homeImage
             }
         }
         
@@ -60,6 +59,16 @@ class Networking {
                 completion([], nil)
             }
         }
+    }
+    
+    func downloadImage(completion: @escaping (Data?, Error?) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.image.url) { (data, response, error) in
+             DispatchQueue.main.async {
+                completion(data, error)
+            }
+        }
+        task.resume()
     }
     
     
