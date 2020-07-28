@@ -13,7 +13,6 @@ extension UIImageView {
     public class func retrieveImage(_ imageData: Data) ->
         UIImageView {
             let key = "\(imageData.description)"
-            print(key)
             if let imageView = imageStore[key] {
                 return imageView
             }

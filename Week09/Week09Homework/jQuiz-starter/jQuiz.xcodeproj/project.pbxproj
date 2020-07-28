@@ -18,6 +18,8 @@
 		C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAF24C260A600F6D3EC /* Clue.swift */; };
 		C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53524C2877C00D11A30 /* SoundManager.swift */; };
 		C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53724C4DEA300D11A30 /* ImageCache.swift */; };
+		D7C2609724CFAB53001EFC6C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2609624CFAB53001EFC6C /* Game.swift */; };
+		D7C2609924CFAD52001EFC6C /* JeopardyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2609824CFAD52001EFC6C /* JeopardyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		C3DF5BAF24C260A600F6D3EC /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		C3FBE53524C2877C00D11A30 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C3FBE53724C4DEA300D11A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		D7C2609624CFAB53001EFC6C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D7C2609824CFAD52001EFC6C /* JeopardyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				C3DF5BA924C254A800F6D3EC /* AppDelegate */,
-				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
-				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
-				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
-				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
-				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
-				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
-				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
+				D7C2609A24CFAD55001EFC6C /* Model */,
+				D7C2609C24CFAD81001EFC6C /* ViewModel */,
+				D7C2609B24CFAD72001EFC6C /* ViewController */,
+				D7C2609D24CFAD8D001EFC6C /* View */,
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
 			);
@@ -131,6 +132,43 @@
 				C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		D7C2609A24CFAD55001EFC6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
+				D7C2609624CFAB53001EFC6C /* Game.swift */,
+				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
+				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
+				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7C2609B24CFAD72001EFC6C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D7C2609C24CFAD81001EFC6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7C2609824CFAD52001EFC6C /* JeopardyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D7C2609D24CFAD8D001EFC6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
+				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,12 +304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */,
+				D7C2609924CFAD52001EFC6C /* JeopardyViewModel.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
 				C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
 				C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */,
 				C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */,
+				D7C2609724CFAB53001EFC6C /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

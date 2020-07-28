@@ -17,9 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scoreLabel: UILabel!
 
-    var clues: [Clue] = []
-    var correctAnswerClue: Clue?
-    var points: Int = 0
+    let game = GameManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,33 +25,29 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .systemPurple
+        
         Networking.sharedInstance.downloadImage(completion: { (data, error) in
             guard let data = data else {
                 return
             }
-            self.logoImageView.image = UIImage(data: data)
+            self.logoImageView.image = UIImageView.retrieveImage(data).image
         })
+        
         getClue()
-        
-        self.scoreLabel.text = "\(self.points)"
-
-        if SoundManager.shared.isSoundEnabled == false {
-            soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-        } else {
-            soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
-        }
-
+        let viewModel = JeopardyViewModel(with: game)
+        self.scoreLabel.text = viewModel.points
+        setSoundImage()
         SoundManager.shared.playSound()
-        
     }
 
     @IBAction func didPressVolumeButton(_ sender: Any) {
         SoundManager.shared.toggleSoundPreference()
-        if SoundManager.shared.isSoundEnabled == false {
-            soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-        } else {
-            soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
-        }
+        setSoundImage()
+    }
+    
+    func setSoundImage() {
+        let soundImageLiteral = SoundManager.shared.isSoundEnabled == false ? "speaker.slash" : "speaker"
+        soundButton.setImage(UIImage(systemName: soundImageLiteral), for: .normal)
     }
     
     func showFailure(message: String) {
@@ -70,31 +64,33 @@ class ViewController: UIViewController {
             }
             
             Networking.sharedInstance.getAllCluesInCategory(clue: clue) { (response, error) in
-                self.clues = response
+                self.game.clues = response
                 self.setUpView()
             }
         })
     }
     
     func setUpView() {
-        let randomInt = Int.random(in: 0...3)
-        correctAnswerClue = clues[randomInt]
-        categoryLabel.text = correctAnswerClue?.category.title
-        clueLabel.text = correctAnswerClue?.question
-        scoreLabel.text = points.description
+        game.setAnswer()
+        let viewModel = JeopardyViewModel(with: game)
+        categoryLabel.text = viewModel.category
+        clueLabel.text = viewModel.question
+        scoreLabel.text = viewModel.points
         tableView.reloadData()
     }
     
     func showAlert(with clue: Clue) {
         let info: (title: String, message: String)
-        guard let correctClue = correctAnswerClue else { return }
+        let viewModel = JeopardyViewModel(with: game)
+        
+        guard let correctClue = game.correctAnswerClue else { return }
         if clue.answer == correctClue.answer {
-            info.title = "Correct Answer!"
-            info.message = "You scored a point!"
-            points += correctClue.value ?? 1
+            info.title = viewModel.correctInfo.title
+            info.message = viewModel.correctInfo.message
+            game.addPoints(correctClue.value ?? 1)
         } else {
-            info.title = "Wrong Answer!"
-            info.message = "No points awarded! The correct answer was \(correctClue.answer). Try Again!"
+            info.title = viewModel.wrongInfo.title
+            info.message = viewModel.wrongInfo.message
         }
         let alertVC = UIAlertController(title: info.title, message: info.message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default) { (action) in
@@ -102,15 +98,12 @@ class ViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         })
         show(alertVC, sender: nil)
-    
      }
-       
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clues.count
+        return game.clues.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -120,16 +113,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = .systemPurple
-        cell.textLabel?.text = clues[indexPath.row].answer.capitalized
+        cell.textLabel?.text = game.clues[indexPath.row].answer.capitalized
         cell.textLabel?.textAlignment = .center
-        if clues[indexPath.row].answer == correctAnswerClue?.answer {
-            cell.textLabel?.textColor = .red
-        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let choice = clues[indexPath.row]
+        let choice = game.clues[indexPath.row]
         showAlert(with: choice)
     }
 }

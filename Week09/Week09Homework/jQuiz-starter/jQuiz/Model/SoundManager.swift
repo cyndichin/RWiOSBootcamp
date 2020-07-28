@@ -34,15 +34,17 @@ class SoundManager: NSObject {
             player = try AVAudioPlayer(contentsOf: url)
             checkSound()
         } catch {
-            print(error)
+            let nserror = error as NSError
+            fatalError("Player does not work \(nserror), \(nserror.userInfo)")
         }
     }
     
     func checkSound() {
-        if isSoundEnabled ?? false {
-            player?.play()
-        } else {
+        if !(isSoundEnabled ?? true) {
             player?.stop()
+        } else {
+            player?.numberOfLoops = -1
+            player?.play()
         }
     }
     
