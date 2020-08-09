@@ -38,13 +38,13 @@ UIView.animate(withDuration: 1, animations: {
   box.center = CGPoint(x: 150, y: 150)
 }, group: animationGroup, completion: {
     _ in
-    UIView.animate(withDuration: 2, animations: {
+    UIView.animate(withDuration: 6, animations: {
       // Rotate box 45 degrees
       box.transform = CGAffineTransform(rotationAngle: .pi/4)
-      }, completion: .none)
+      }, group: animationGroup, completion: .none)
 })
 
-UIView.animate(withDuration: 4, animations: { () -> Void in
+UIView.animate(withDuration: 6, animations: { () -> Void in
   // Change background color to blue
   view.backgroundColor = UIColor.blue
 },  group: animationGroup, completion: .none)
