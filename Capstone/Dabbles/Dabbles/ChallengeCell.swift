@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 //
 //class ChallengeItemCell: UICollectionViewCell {
-//    static let reuseIdentifer = "challengeItemCellId"
+//    static let reuseIdentifer = "ChallengeItemCellId"
 //    let title: UILabel
 //    let thumbnail: UIImageView
 //    let contentContainer: UIView
@@ -43,15 +43,15 @@ import UIKit
 //  func configure() {
 //    contentContainer.translatesAutoresizingMaskIntoConstraints = false
 //
-//    contentView.addSubview(challengePhotoView)
+//    contentView.addSubview(ChallengeItemPhotoView)
 //    contentView.addSubview(contentContainer)
 //
-//    challengePhotoView.translatesAutoresizingMaskIntoConstraints = false
+//    ChallengeItemPhotoView.translatesAutoresizingMaskIntoConstraints = false
 //    if let featuredPhotoURL = featuredPhotoURL {
-//      challengePhotoView.image = UIImage(contentsOfFile: featuredPhotoURL.path)
+//      ChallengeItemPhotoView.image = UIImage(contentsOfFile: featuredPhotoURL.path)
 //    }
-//    challengePhotoView.clipsToBounds = true
-//    contentContainer.addSubview(challengePhotoView)
+//    ChallengeItemPhotoView.clipsToBounds = true
+//    contentContainer.addSubview(ChallengeItemPhotoView)
 //
 //    titleLabel.translatesAutoresizingMaskIntoConstraints = false
 //    titleLabel.text = title
@@ -72,10 +72,10 @@ import UIKit
 //      contentContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
 //      contentContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 //
-//      challengePhotoView.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor),
-//      challengePhotoView.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor),
-//      challengePhotoView.topAnchor.constraint(equalTo: contentContainer.topAnchor),
-//      challengePhotoView.bottomAnchor.constraint(equalTo: contentContainer.bottomAnchor),
+//      ChallengeItemPhotoView.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor),
+//      ChallengeItemPhotoView.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor),
+//      ChallengeItemPhotoView.topAnchor.constraint(equalTo: contentContainer.topAnchor),
+//      ChallengeItemPhotoView.bottomAnchor.constraint(equalTo: contentContainer.bottomAnchor),
 //
 //      titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 //      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

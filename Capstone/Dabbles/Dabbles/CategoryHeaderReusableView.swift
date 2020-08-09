@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SectionHeaderReusableView: UICollectionReusableView {
+class CategoryHeaderReusableView: UICollectionReusableView {
   static var reuseIdentifier: String {
-    return String(describing: SectionHeaderReusableView.self)
+    return String(describing: CategoryHeaderReusableView.self)
   }
   
   lazy var titleLabel: UILabel = {

@@ -1,0 +1,6 @@
+framework module Pods_Dabbles {
+  umbrella header "Pods-Dabbles-umbrella.h"
+
+  export *
+  module * { export * }
+}

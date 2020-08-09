@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2548ADB91BC2B349AF8E5749 /* Pods_Dabbles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C324D03C4EC8785C484DFB /* Pods_Dabbles.framework */; };
+		D715901D24D8E0A7009E5482 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D715901C24D8E0A7009E5482 /* GoogleService-Info.plist */; };
 		D719817F24C8E77A003EDFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719817E24C8E77A003EDFD5 /* AppDelegate.swift */; };
 		D719818124C8E77A003EDFD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719818024C8E77A003EDFD5 /* SceneDelegate.swift */; };
-		D719818324C8E77A003EDFD5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719818224C8E77A003EDFD5 /* FirstViewController.swift */; };
+		D719818324C8E77A003EDFD5 /* CatalogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719818224C8E77A003EDFD5 /* CatalogController.swift */; };
 		D719818524C8E77B003EDFD5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719818424C8E77B003EDFD5 /* SecondViewController.swift */; };
 		D719818824C8E77B003EDFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D719818624C8E77B003EDFD5 /* Main.storyboard */; };
 		D719818B24C8E77B003EDFD5 /* Dabbles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D719818924C8E77B003EDFD5 /* Dabbles.xcdatamodeld */; };
@@ -17,6 +19,21 @@
 		D719819024C8E780003EDFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D719818E24C8E780003EDFD5 /* LaunchScreen.storyboard */; };
 		D719819B24C8E780003EDFD5 /* DabblesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719819A24C8E780003EDFD5 /* DabblesTests.swift */; };
 		D71981A624C8E780003EDFD5 /* DabblesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71981A524C8E780003EDFD5 /* DabblesUITests.swift */; };
+		D71A3FCD24CDEC2C00A2375A /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A3FCC24CDEC2C00A2375A /* UIView+IBInspectable.swift */; };
+		D73344C424D2668700241AE2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73344C324D2668700241AE2 /* Date+Extensions.swift */; };
+		D7506FD524CA75E6009D2A3C /* ChallengeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FD424CA75E6009D2A3C /* ChallengeItem.swift */; };
+		D7506FD724CA7758009D2A3C /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FD624CA7758009D2A3C /* ChallengeCell.swift */; };
+		D7506FD924CA798D009D2A3C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FD824CA798D009D2A3C /* HeaderView.swift */; };
+		D7506FDD24CB9202009D2A3C /* ChallengeItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FDB24CB9202009D2A3C /* ChallengeItemCollectionViewCell.swift */; };
+		D7506FDE24CB9202009D2A3C /* ChallengeItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7506FDC24CB9202009D2A3C /* ChallengeItemCollectionViewCell.xib */; };
+		D7506FE024CB9493009D2A3C /* CategoryHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FDF24CB9493009D2A3C /* CategoryHeaderReusableView.swift */; };
+		D7506FE224CB94C3009D2A3C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7506FE124CB94C3009D2A3C /* Category.swift */; };
+		D7B970E224CE507D0085165A /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B970E124CE507D0085165A /* ChallengeDetailViewController.swift */; };
+		D7B970E424CE5EBE0085165A /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B970E324CE5EBE0085165A /* MyListViewController.swift */; };
+		D7C3DDE924DB7E100072FACB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DDE824DB7E100072FACB /* CalendarViewController.swift */; };
+		D7C3DDEE24DB7E990072FACB /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DDEC24DB7E990072FACB /* ListCollectionViewCell.swift */; };
+		D7C3DDEF24DB7E990072FACB /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C3DDED24DB7E990072FACB /* ListCollectionViewCell.xib */; };
+		D7C3DDF124DE2CE00072FACB /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DDF024DE2CE00072FACB /* MyListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6807399D7065C7CBDE11BC77 /* Pods-Dabbles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dabbles.debug.xcconfig"; path = "Target Support Files/Pods-Dabbles/Pods-Dabbles.debug.xcconfig"; sourceTree = "<group>"; };
+		86C324D03C4EC8785C484DFB /* Pods_Dabbles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dabbles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36C50C2C9564590612F7636 /* Pods-Dabbles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dabbles.release.xcconfig"; path = "Target Support Files/Pods-Dabbles/Pods-Dabbles.release.xcconfig"; sourceTree = "<group>"; };
+		D715901C24D8E0A7009E5482 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D719817B24C8E77A003EDFD5 /* Dabbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dabbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D719817E24C8E77A003EDFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D719818024C8E77A003EDFD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D719818224C8E77A003EDFD5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D719818224C8E77A003EDFD5 /* CatalogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogController.swift; sourceTree = "<group>"; };
 		D719818424C8E77B003EDFD5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D719818724C8E77B003EDFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D719818A24C8E77B003EDFD5 /* Dabbles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dabbles.xcdatamodel; sourceTree = "<group>"; };
@@ -53,6 +74,21 @@
 		D71981A124C8E780003EDFD5 /* DabblesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DabblesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71981A524C8E780003EDFD5 /* DabblesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DabblesUITests.swift; sourceTree = "<group>"; };
 		D71981A724C8E780003EDFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D71A3FCC24CDEC2C00A2375A /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
+		D73344C324D2668700241AE2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		D7506FD424CA75E6009D2A3C /* ChallengeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeItem.swift; path = Model/ChallengeItem.swift; sourceTree = "<group>"; };
+		D7506FD624CA7758009D2A3C /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
+		D7506FD824CA798D009D2A3C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D7506FDB24CB9202009D2A3C /* ChallengeItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7506FDC24CB9202009D2A3C /* ChallengeItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		D7506FDF24CB9493009D2A3C /* CategoryHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderReusableView.swift; sourceTree = "<group>"; };
+		D7506FE124CB94C3009D2A3C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D7B970E124CE507D0085165A /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		D7B970E324CE5EBE0085165A /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		D7C3DDE824DB7E100072FACB /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D7C3DDEC24DB7E990072FACB /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7C3DDED24DB7E990072FACB /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
+		D7C3DDF024DE2CE00072FACB /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2548ADB91BC2B349AF8E5749 /* Pods_Dabbles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8515173C584FE1E76E33BFBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6807399D7065C7CBDE11BC77 /* Pods-Dabbles.debug.xcconfig */,
+				B36C50C2C9564590612F7636 /* Pods-Dabbles.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8C3230AE2D73B3AC1B8C7073 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86C324D03C4EC8785C484DFB /* Pods_Dabbles.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D719817224C8E77A003EDFD5 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +141,8 @@
 				D719819924C8E780003EDFD5 /* DabblesTests */,
 				D71981A424C8E780003EDFD5 /* DabblesUITests */,
 				D719817C24C8E77A003EDFD5 /* Products */,
+				8515173C584FE1E76E33BFBD /* Pods */,
+				8C3230AE2D73B3AC1B8C7073 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,14 +159,17 @@
 		D719817D24C8E77A003EDFD5 /* Dabbles */ = {
 			isa = PBXGroup;
 			children = (
+				D7506FDA24CB913D009D2A3C /* Model */,
+				D7506FD324CA7303009D2A3C /* ViewController */,
+				D7506FD224CA72F9009D2A3C /* View */,
+				D7C3DDF224DE2DC80072FACB /* ViewModel */,
 				D719817E24C8E77A003EDFD5 /* AppDelegate.swift */,
 				D719818024C8E77A003EDFD5 /* SceneDelegate.swift */,
-				D719818224C8E77A003EDFD5 /* FirstViewController.swift */,
-				D719818424C8E77B003EDFD5 /* SecondViewController.swift */,
 				D719818624C8E77B003EDFD5 /* Main.storyboard */,
 				D719818C24C8E780003EDFD5 /* Assets.xcassets */,
 				D719818E24C8E780003EDFD5 /* LaunchScreen.storyboard */,
 				D719819124C8E780003EDFD5 /* Info.plist */,
+				D715901C24D8E0A7009E5482 /* GoogleService-Info.plist */,
 				D719818924C8E77B003EDFD5 /* Dabbles.xcdatamodeld */,
 			);
 			path = Dabbles;
@@ -134,6 +193,51 @@
 			path = DabblesUITests;
 			sourceTree = "<group>";
 		};
+		D7506FD224CA72F9009D2A3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7506FD824CA798D009D2A3C /* HeaderView.swift */,
+				D7506FDF24CB9493009D2A3C /* CategoryHeaderReusableView.swift */,
+				D7506FD624CA7758009D2A3C /* ChallengeCell.swift */,
+				D7506FDB24CB9202009D2A3C /* ChallengeItemCollectionViewCell.swift */,
+				D7C3DDEC24DB7E990072FACB /* ListCollectionViewCell.swift */,
+				D7C3DDED24DB7E990072FACB /* ListCollectionViewCell.xib */,
+				D7506FDC24CB9202009D2A3C /* ChallengeItemCollectionViewCell.xib */,
+				D71A3FCC24CDEC2C00A2375A /* UIView+IBInspectable.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D7506FD324CA7303009D2A3C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D719818224C8E77A003EDFD5 /* CatalogController.swift */,
+				D7B970E324CE5EBE0085165A /* MyListViewController.swift */,
+				D7C3DDE824DB7E100072FACB /* CalendarViewController.swift */,
+				D73344C324D2668700241AE2 /* Date+Extensions.swift */,
+				D719818424C8E77B003EDFD5 /* SecondViewController.swift */,
+				D7B970E124CE507D0085165A /* ChallengeDetailViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		D7506FDA24CB913D009D2A3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7506FD424CA75E6009D2A3C /* ChallengeItem.swift */,
+				D7506FE124CB94C3009D2A3C /* Category.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D7C3DDF224DE2DC80072FACB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7C3DDF024DE2CE00072FACB /* MyListViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D71981AA24C8E780003EDFD5 /* Build configuration list for PBXNativeTarget "Dabbles" */;
 			buildPhases = (
+				0F9294BB478F6CDB9BE0A71B /* [CP] Check Pods Manifest.lock */,
 				D719817724C8E77A003EDFD5 /* Sources */,
 				D719817824C8E77A003EDFD5 /* Frameworks */,
 				D719817924C8E77A003EDFD5 /* Resources */,
@@ -240,6 +345,9 @@
 			files = (
 				D719819024C8E780003EDFD5 /* LaunchScreen.storyboard in Resources */,
 				D719818D24C8E780003EDFD5 /* Assets.xcassets in Resources */,
+				D7C3DDEF24DB7E990072FACB /* ListCollectionViewCell.xib in Resources */,
+				D715901D24D8E0A7009E5482 /* GoogleService-Info.plist in Resources */,
+				D7506FDE24CB9202009D2A3C /* ChallengeItemCollectionViewCell.xib in Resources */,
 				D719818824C8E77B003EDFD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,16 +368,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F9294BB478F6CDB9BE0A71B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dabbles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D719817724C8E77A003EDFD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C3DDF124DE2CE00072FACB /* MyListViewModel.swift in Sources */,
+				D7C3DDE924DB7E100072FACB /* CalendarViewController.swift in Sources */,
+				D7506FD724CA7758009D2A3C /* ChallengeCell.swift in Sources */,
 				D719818524C8E77B003EDFD5 /* SecondViewController.swift in Sources */,
-				D719818324C8E77A003EDFD5 /* FirstViewController.swift in Sources */,
+				D7B970E424CE5EBE0085165A /* MyListViewController.swift in Sources */,
+				D719818324C8E77A003EDFD5 /* CatalogController.swift in Sources */,
+				D7506FDD24CB9202009D2A3C /* ChallengeItemCollectionViewCell.swift in Sources */,
+				D7506FE224CB94C3009D2A3C /* Category.swift in Sources */,
+				D7506FD524CA75E6009D2A3C /* ChallengeItem.swift in Sources */,
+				D71A3FCD24CDEC2C00A2375A /* UIView+IBInspectable.swift in Sources */,
+				D73344C424D2668700241AE2 /* Date+Extensions.swift in Sources */,
+				D7B970E224CE507D0085165A /* ChallengeDetailViewController.swift in Sources */,
 				D719817F24C8E77A003EDFD5 /* AppDelegate.swift in Sources */,
+				D7C3DDEE24DB7E990072FACB /* ListCollectionViewCell.swift in Sources */,
+				D7506FE024CB9493009D2A3C /* CategoryHeaderReusableView.swift in Sources */,
 				D719818B24C8E77B003EDFD5 /* Dabbles.xcdatamodeld in Sources */,
 				D719818124C8E77A003EDFD5 /* SceneDelegate.swift in Sources */,
+				D7506FD924CA798D009D2A3C /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +586,7 @@
 		};
 		D71981AB24C8E780003EDFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6807399D7065C7CBDE11BC77 /* Pods-Dabbles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +605,7 @@
 		};
 		D71981AC24C8E780003EDFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B36C50C2C9564590612F7636 /* Pods-Dabbles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
